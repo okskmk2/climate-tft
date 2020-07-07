@@ -1,6 +1,6 @@
 <template>
   <div class="search-input">
-    <input type="text" /><i class="material-icons">search</i>
+    <input type="text" /><i class="fa fa-search" aria-hidden="true"></i>
   </div>
 </template>
 
@@ -24,8 +24,8 @@ export default {
 
 .search-input > i {
   position: absolute;
-  top: 6px;
-  right: 6px;
+  top: 7px;
+  right: 8px;
   color: #444;
   cursor: pointer;
 }

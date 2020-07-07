@@ -3,7 +3,7 @@
     <h1>회사</h1>
     <div class="top-btn-group">
       <SearchInput></SearchInput>
-      <button style="padding: 1px 17px;">등록하기</button>
+      <button>등록하기</button>
     </div>
     <ul class="card-container">
       <li>

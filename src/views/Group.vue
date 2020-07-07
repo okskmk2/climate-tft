@@ -3,7 +3,7 @@
     <h1>연합단체들</h1>
     <div class="top-btn-group">
       <SearchInput></SearchInput>
-      <button style="padding: 1px 17px;">등록하기</button>
+      <button>등록하기</button>
     </div>
     <ul class="card-container">
       <li>
@@ -21,12 +21,12 @@
             </tr>
           </table>
           <div class="btn-group">
-            <button>입장하기</button>
+            <router-link to="/GroupSpace"><button>입장하기</button></router-link>
           </div>
         </div>
       </li>
       <li>
-        <div class="title">소모임활성화부</div>
+        <div class="title">기후변화청년모임 빅웨이브</div>
         <div class="card">
           <div class="desc">의안을 제안하는 부서</div>
           <table>
@@ -40,7 +40,7 @@
             </tr>
           </table>
           <div class="btn-group">
-            <button>입장하기</button>
+            <router-link to="/GroupSpace"><button>입장하기</button></router-link>
           </div>
         </div>
       </li>
@@ -59,7 +59,7 @@
             </tr>
           </table>
           <div class="btn-group">
-            <button>입장하기</button>
+            <router-link to="/GroupSpace"><button>입장하기</button></router-link>
           </div>
         </div>
       </li>
@@ -78,7 +78,7 @@
             </tr>
           </table>
           <div class="btn-group">
-            <button>입장하기</button>
+            <router-link to="/GroupSpace"><button>입장하기</button></router-link>
           </div>
         </div>
       </li>
@@ -97,7 +97,7 @@
             </tr>
           </table>
           <div class="btn-group">
-            <button>입장하기</button>
+            <router-link to="/GroupSpace"><button>입장하기</button></router-link>
           </div>
         </div>
       </li>
@@ -116,7 +116,7 @@
             </tr>
           </table>
           <div class="btn-group">
-            <button>입장하기</button>
+            <router-link to="/GroupSpace"><button>입장하기</button></router-link>
           </div>
         </div>
       </li>
@@ -135,7 +135,7 @@
             </tr>
           </table>
           <div class="btn-group">
-            <button>입장하기</button>
+            <router-link to="/GroupSpace"><button>입장하기</button></router-link>
           </div>
         </div>
       </li>
@@ -154,7 +154,7 @@
             </tr>
           </table>
           <div class="btn-group">
-            <button>입장하기</button>
+            <router-link to="/GroupSpace"><button>입장하기</button></router-link>
           </div>
         </div>
       </li>

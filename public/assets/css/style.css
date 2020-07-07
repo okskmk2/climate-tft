@@ -2,6 +2,7 @@
   --borderColor: #ddd;
   --blue: #0068d4;
   --red: rgb(239, 52, 77);
+  --light-gray: #f7f7f7;
 }
 
 .app {
@@ -26,6 +27,7 @@ header {
 
 footer {
   border-top: 1px solid var(--borderColor);
+  background-color: var(--light-gray);
 }
 
 h1 {
@@ -42,11 +44,18 @@ button {
 .container {
   width: 75rem;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .header-inner {
   display: flex;
-  padding: 18px 0 15px;
+  padding-top: 18px;
+  padding-bottom: 15px;
+}
+
+.footer-inner {
+  padding-top: 15px;
+  padding-bottom: 20px;
 }
 
 .brand-text a {
@@ -67,7 +76,7 @@ button {
 }
 
 .gnb a {
-  font-size: 18px;
+  font-size: 17px;
   color: inherit;
   text-decoration: none;
   padding: 6px;
@@ -76,7 +85,7 @@ button {
 }
 
 .gnb a:not(:first-child) {
-  margin-left: 21px;
+  margin-left: 24px;
 }
 
 .gnb a:hover {
@@ -175,6 +184,10 @@ button {
   margin-bottom: 36px;
 }
 
+.top-btn-group button{
+  padding: 6px 17px;
+}
+
 .qna-container {
   margin: 0;
   padding: 0;
@@ -189,7 +202,6 @@ button {
 }
 
 .qna-container > li .title {
-  color: var(--blue);
   margin-bottom: 26px;
   font-size: 18px;
 }

@@ -11,8 +11,8 @@
           <gnb></gnb>
           <div class="unb">
             <router-link to="/Sponsor"><span>후원하기</span></router-link>
-            <a><span>회원가입</span></a>
-            <a><span>로그인</span></a>
+            <router-link to="/SignUpForm"><span>회원가입</span></router-link>
+            <router-link to="/LoginForm"><span>로그인</span></router-link>
             <i18nChanger></i18nChanger>
           </div>
         </div>
@@ -20,9 +20,9 @@
     </header>
     <router-view class="container main" />
     <footer>
-      <div class="container">
-        <i class="fa fa-facebook-official fa-fw" aria-hidden="true"></i>
-        <i class="fa fa-instagram fa-fw" aria-hidden="true"></i>
+      <div class="footer-inner container">
+        <i class="fa fa-lg fa-facebook-official fa-fw" aria-hidden="true"></i>
+        <i class="fa fa-lg fa-instagram fa-fw" aria-hidden="true"></i>
       </div>
     </footer>
   </div>

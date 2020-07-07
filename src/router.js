@@ -9,6 +9,15 @@ import QnA from "./views/QnA.vue";
 import Archive from "./views/Archive.vue";
 import Sponsor from "./views/Sponsor.vue";
 
+import SignUpForm from "./views/SignUpForm.vue";
+import LoginForm from "./views/LoginForm.vue";
+import QnAForm from "./views/QnAForm.vue";
+
+import DepartmentSpace from "./views/DepartmentSpace.vue";
+import GroupSpace from "./views/GroupSpace.vue";
+
+import QnADetail from "./views/QnADetail.vue";
+
 Vue.use(Router);
 
 export default new Router({
@@ -44,6 +53,30 @@ export default new Router({
     {
       path: "/Sponsor",
       component: Sponsor,
+    },
+    {
+      path: "/SignUpForm",
+      component: SignUpForm,
+    },
+    {
+      path: "/LoginForm",
+      component: LoginForm,
+    },
+    {
+      path: "/QnAForm",
+      component: QnAForm,
+    },
+    {
+      path: "/DepartmentSpace",
+      component: DepartmentSpace,
+    },
+    {
+      path: "/GroupSpace",
+      component: GroupSpace,
+    },
+    {
+      path: "/QnADetail",
+      component: QnADetail,
     },
   ],
 });

@@ -1,7 +1,6 @@
 <template>
   <div>
-      <h1>홈</h1>
-      <p>행사소식, 최신자료, 최신뉴스</p>
+      <h1>부서별 공간</h1>
   </div>
 </template>
 
