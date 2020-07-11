@@ -3,7 +3,7 @@
     <h1>연합단체들</h1>
     <div class="top-btn-group">
       <SearchInput></SearchInput>
-      <button>등록하기</button>
+      <router-link to='/GroupForm'><button>등록하기</button></router-link>      
     </div>
     <ul class="card-container">
       <li>
@@ -20,8 +20,8 @@
               <td>3</td>
             </tr>
           </table>
-          <div class="btn-group">
-            <router-link to="/GroupSpace"><button>입장하기</button></router-link>
+          <div class="footer-btn-group">
+            <router-link to="/Group/Space"><button>입장하기</button></router-link>
           </div>
         </div>
       </li>
@@ -39,8 +39,8 @@
               <td>3</td>
             </tr>
           </table>
-          <div class="btn-group">
-            <router-link to="/GroupSpace"><button>입장하기</button></router-link>
+          <div class="footer-btn-group">
+            <router-link to="/Group/Space"><button>입장하기</button></router-link>
           </div>
         </div>
       </li>
@@ -58,8 +58,8 @@
               <td>3</td>
             </tr>
           </table>
-          <div class="btn-group">
-            <router-link to="/GroupSpace"><button>입장하기</button></router-link>
+          <div class="footer-btn-group">
+            <router-link to="/Group/Space"><button>입장하기</button></router-link>
           </div>
         </div>
       </li>
@@ -77,8 +77,8 @@
               <td>3</td>
             </tr>
           </table>
-          <div class="btn-group">
-            <router-link to="/GroupSpace"><button>입장하기</button></router-link>
+          <div class="footer-btn-group">
+            <router-link to="/Group/Space"><button>입장하기</button></router-link>
           </div>
         </div>
       </li>
@@ -96,8 +96,8 @@
               <td>3</td>
             </tr>
           </table>
-          <div class="btn-group">
-            <router-link to="/GroupSpace"><button>입장하기</button></router-link>
+          <div class="footer-btn-group">
+            <router-link to="/Group/Space"><button>입장하기</button></router-link>
           </div>
         </div>
       </li>
@@ -115,8 +115,8 @@
               <td>3</td>
             </tr>
           </table>
-          <div class="btn-group">
-            <router-link to="/GroupSpace"><button>입장하기</button></router-link>
+          <div class="footer-btn-group">
+            <router-link to="/Group/Space"><button>입장하기</button></router-link>
           </div>
         </div>
       </li>
@@ -134,8 +134,8 @@
               <td>3</td>
             </tr>
           </table>
-          <div class="btn-group">
-            <router-link to="/GroupSpace"><button>입장하기</button></router-link>
+          <div class="footer-btn-group">
+            <router-link to="/Group/Space"><button>입장하기</button></router-link>
           </div>
         </div>
       </li>
@@ -153,8 +153,8 @@
               <td>3</td>
             </tr>
           </table>
-          <div class="btn-group">
-            <router-link to="/GroupSpace"><button>입장하기</button></router-link>
+          <div class="footer-btn-group">
+            <router-link to="/Group/Space"><button>입장하기</button></router-link>
           </div>
         </div>
       </li>
@@ -168,6 +168,9 @@ export default {
   components: {
     SearchInput,
   },
+    mounted(){
+      this.$store.commit('setTitle', "연합단체들");
+  }
 };
 </script>
 

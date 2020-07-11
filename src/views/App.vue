@@ -1,5 +1,6 @@
 <template>
   <div class="app">
+    <Modal></Modal>
     <header>
       <div class="header-inner container">
         <div class="brand-text">
@@ -36,6 +37,7 @@ ko:
 <script>
 import i18nChanger from "../components/i18n-changer";
 import gnb from "../components/gnb";
+import Modal from "../components/Modal";
 
 export default {
   name: "app",
@@ -44,6 +46,6 @@ export default {
       modalOpen: false,
     };
   },
-  components: { i18nChanger, gnb },
+  components: { i18nChanger, gnb, Modal },
 };
 </script>

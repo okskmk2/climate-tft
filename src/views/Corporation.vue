@@ -20,7 +20,7 @@
               <td>3</td>
             </tr>
           </table>
-          <div class="btn-group">
+          <div class="footer-btn-group">
             <button>입장하기</button>
           </div>
         </div>
@@ -39,7 +39,7 @@
               <td>3</td>
             </tr>
           </table>
-          <div class="btn-group">
+          <div class="footer-btn-group">
             <button>입장하기</button>
           </div>
         </div>
@@ -58,7 +58,7 @@
               <td>3</td>
             </tr>
           </table>
-          <div class="btn-group">
+          <div class="footer-btn-group">
             <button>입장하기</button>
           </div>
         </div>
@@ -77,7 +77,7 @@
               <td>3</td>
             </tr>
           </table>
-          <div class="btn-group">
+          <div class="footer-btn-group">
             <button>입장하기</button>
           </div>
         </div>
@@ -96,7 +96,7 @@
               <td>3</td>
             </tr>
           </table>
-          <div class="btn-group">
+          <div class="footer-btn-group">
             <button>입장하기</button>
           </div>
         </div>
@@ -115,7 +115,7 @@
               <td>3</td>
             </tr>
           </table>
-          <div class="btn-group">
+          <div class="footer-btn-group">
             <button>입장하기</button>
           </div>
         </div>
@@ -134,7 +134,7 @@
               <td>3</td>
             </tr>
           </table>
-          <div class="btn-group">
+          <div class="footer-btn-group">
             <button>입장하기</button>
           </div>
         </div>
@@ -153,7 +153,7 @@
               <td>3</td>
             </tr>
           </table>
-          <div class="btn-group">
+          <div class="footer-btn-group">
             <button>입장하기</button>
           </div>
         </div>
@@ -168,6 +168,9 @@ export default {
   components: {
     SearchInput,
   },
+    mounted(){
+      this.$store.commit('setTitle', "회사");
+  }
 };
 </script>
 

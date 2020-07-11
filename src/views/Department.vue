@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>중앙부서들</h1>
+    <h1>부서들</h1>
     <div class="top-btn-group">
       <SearchInput></SearchInput>
       <button>등록하기</button>
@@ -22,7 +22,7 @@
                 <td>3</td>
               </tr>
             </table>
-            <div class="btn-group">
+            <div class="footer-btn-group">
               <router-link to="/DepartmentSpace"><button>입장하기</button></router-link>
             </div>
           </div>
@@ -44,7 +44,7 @@
                 <td>3</td>
               </tr>
             </table>
-            <div class="btn-group">
+            <div class="footer-btn-group">
               <router-link to="/DepartmentSpace"><router-link to="/DepartmentSpace"><button>입장하기</button></router-link></router-link>
             </div>
           </div>
@@ -68,7 +68,7 @@
                 <td>3</td>
               </tr>
             </table>
-            <div class="btn-group">
+            <div class="footer-btn-group">
               <router-link to="/DepartmentSpace"><button>입장하기</button></router-link>
             </div>
           </div>
@@ -90,7 +90,7 @@
                 <td>3</td>
               </tr>
             </table>
-            <div class="btn-group">
+            <div class="footer-btn-group">
               <router-link to="/DepartmentSpace"><button>입장하기</button></router-link>
             </div>
           </div>
@@ -112,7 +112,7 @@
                 <td>3</td>
               </tr>
             </table>
-            <div class="btn-group">
+            <div class="footer-btn-group">
               <router-link to="/DepartmentSpace"><button>입장하기</button></router-link>
             </div>
           </div>
@@ -134,7 +134,7 @@
                 <td>3</td>
               </tr>
             </table>
-            <div class="btn-group">
+            <div class="footer-btn-group">
               <router-link to="/DepartmentSpace"><button>입장하기</button></router-link>
             </div>
           </div>
@@ -156,7 +156,7 @@
                 <td>3</td>
               </tr>
             </table>
-            <div class="btn-group">
+            <div class="footer-btn-group">
               <router-link to="/DepartmentSpace"><button>입장하기</button></router-link>
             </div>
           </div>
@@ -178,7 +178,7 @@
                 <td>3</td>
               </tr>
             </table>
-            <div class="btn-group">
+            <div class="footer-btn-group">
               <router-link to="/DepartmentSpace"><button>입장하기</button></router-link>
             </div>
           </div>
@@ -194,6 +194,9 @@ export default {
   components: {
     SearchInput,
   },
+    mounted(){
+      this.$store.commit('setTitle', "부서들");
+  }
 };
 </script>
 

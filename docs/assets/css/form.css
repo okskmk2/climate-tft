@@ -1,0 +1,50 @@
+button {
+  padding: 6px 17px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+textarea.content{
+    min-height: 25rem;
+}
+
+.footer-btn-group {
+  margin-top: 25px;
+}
+
+.field-row {
+  margin-bottom: 10px;
+}
+
+.field-row input[type="text"],
+.field-row input[type="password"],
+.field-row textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px;
+}
+
+.field-row .mandatory {
+  color: var(--red);
+}
+
+.field-row .optional {
+  color: var(--less-important);
+  font-size: 0.9em;
+}
+
+.field-row label {
+  margin-bottom: 5px;
+}
+
+.field-row .input-error {
+  color: var(--red);
+  font-size: 14px;
+  margin-top: 3px;
+}
+
+/* .field-row .input-error::after {
+  content: "\00a0";
+} */
