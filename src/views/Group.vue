@@ -3,13 +3,13 @@
     <h1>연합단체들</h1>
     <div class="top-btn-group">
       <SearchInput></SearchInput>
-      <router-link to='/GroupForm'><button>등록하기</button></router-link>      
+      <router-link to="/GroupForm"><button>등록하기</button></router-link>
     </div>
     <ul class="card-container">
-      <li>
-        <div class="title">가오클</div>
+      <li v-for="group in groupList">
+        <div class="title">{{ group.name }}</div>
         <div class="card">
-          <div class="desc">의안을 제안하는 부서</div>
+          <div class="desc">{{ group.description }}</div>
           <table>
             <tr>
               <td>열린 이슈</td>
@@ -21,140 +21,9 @@
             </tr>
           </table>
           <div class="footer-btn-group">
-            <router-link to="/Group/Space"><button>입장하기</button></router-link>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="title">기후변화청년모임 빅웨이브</div>
-        <div class="card">
-          <div class="desc">의안을 제안하는 부서</div>
-          <table>
-            <tr>
-              <td>열린 이슈</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>진행 중인 이슈</td>
-              <td>3</td>
-            </tr>
-          </table>
-          <div class="footer-btn-group">
-            <router-link to="/Group/Space"><button>입장하기</button></router-link>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="title">쓰레기줄이기부</div>
-        <div class="card">
-          <div class="desc">의안을 제안하는 부서</div>
-          <table>
-            <tr>
-              <td>열린 이슈</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>진행 중인 이슈</td>
-              <td>3</td>
-            </tr>
-          </table>
-          <div class="footer-btn-group">
-            <router-link to="/Group/Space"><button>입장하기</button></router-link>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="title">채식진흥부</div>
-        <div class="card">
-          <div class="desc">의안을 제안하는 부서</div>
-          <table>
-            <tr>
-              <td>열린 이슈</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>진행 중인 이슈</td>
-              <td>3</td>
-            </tr>
-          </table>
-          <div class="footer-btn-group">
-            <router-link to="/Group/Space"><button>입장하기</button></router-link>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="title">문서정리부</div>
-        <div class="card">
-          <div class="desc">의안을 제안하는 부서</div>
-          <table>
-            <tr>
-              <td>열린 이슈</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>진행 중인 이슈</td>
-              <td>3</td>
-            </tr>
-          </table>
-          <div class="footer-btn-group">
-            <router-link to="/Group/Space"><button>입장하기</button></router-link>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="title">자연환경복원부</div>
-        <div class="card">
-          <div class="desc">의안을 제안하는 부서</div>
-          <table>
-            <tr>
-              <td>열린 이슈</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>진행 중인 이슈</td>
-              <td>3</td>
-            </tr>
-          </table>
-          <div class="footer-btn-group">
-            <router-link to="/Group/Space"><button>입장하기</button></router-link>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="title">에너지효율부</div>
-        <div class="card">
-          <div class="desc">의안을 제안하는 부서</div>
-          <table>
-            <tr>
-              <td>열린 이슈</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>진행 중인 이슈</td>
-              <td>3</td>
-            </tr>
-          </table>
-          <div class="footer-btn-group">
-            <router-link to="/Group/Space"><button>입장하기</button></router-link>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="title">소프트웨어개발부</div>
-        <div class="card">
-          <div class="desc">의안을 제안하는 부서</div>
-          <table>
-            <tr>
-              <td>열린 이슈</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>진행 중인 이슈</td>
-              <td>3</td>
-            </tr>
-          </table>
-          <div class="footer-btn-group">
-            <router-link to="/Group/Space"><button>입장하기</button></router-link>
+            <router-link :to="'/Group/' + group.id"
+              ><button>입장하기</button></router-link
+            >
           </div>
         </div>
       </li>
@@ -163,14 +32,36 @@
 </template>
 
 <script>
+import firebase from "firebase";
+
 import SearchInput from "../components/search-input";
 export default {
+  data() {
+    return {
+      groupList: [],
+    };
+  },
   components: {
     SearchInput,
   },
-    mounted(){
-      this.$store.commit('setTitle', "연합단체들");
-  }
+  mounted() {
+    this.getGroup();
+  },
+  methods: {
+    getGroup() {
+      firebase
+        .firestore()
+        .collection(`group`)
+        .get()
+        .then((querySnapshot) => {
+          let groupList = [];
+          querySnapshot.forEach((doc) =>
+            groupList.push({ id: doc.id, ...doc.data() })
+          );
+          this.groupList = groupList;
+        });
+    },
+  },
 };
 </script>
 

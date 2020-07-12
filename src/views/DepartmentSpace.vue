@@ -6,12 +6,10 @@
 
 <script>
 export default {
-  mounted(){
-      this.$store.commit('setTitle', "문서정리부");
-  }
-}
+  mounted() {
+    this.$store.commit("setTitle", "문서정리부");
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

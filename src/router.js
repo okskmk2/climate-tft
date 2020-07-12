@@ -93,12 +93,12 @@ export default new Router({
       component: DepartmentSpace,
     },
     {
-      path: "/Group/Space",
+      path: "/Group/:groupId",
       component: GroupSpace,
       children: [
         {
           path: "",
-          redirect: "/Group/Space/Doc",
+          redirect: "/Group/:groupId/Doc",
         },
         {
           path: "Doc",
@@ -106,7 +106,7 @@ export default new Router({
           children: [
             {
               path: "",
-              redirect: "/Group/Space/Doc/Notice",
+              redirect: "/Group/:groupId/Doc/Notice",
             },
             {
               path: "Notice",
@@ -128,7 +128,7 @@ export default new Router({
           children: [
             {
               path: "",
-              redirect: "/Group/Space/Issue/IssueBoard",
+              redirect: "/Group/:groupId/Issue/IssueBoard",
             },
             {
               path: "IssueBoard",

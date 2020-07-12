@@ -1,16 +1,36 @@
 <template>
   <div>
-    <h2>가오클</h2>
+    <h2>{{ groupName }}</h2>
     <nav style="margin-top: 20px;">
-      <router-link to="/Group/Space/Doc">문서</router-link> | 
-      <router-link to="/Group/Space/Issue">이슈</router-link>
+      <router-link :to="`/Group/${$route.params.groupId}/Doc`">문서</router-link> |
+      <router-link :to="`/Group/${$route.params.groupId}/Issue`">이슈</router-link>
     </nav>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-export default {};
+import firebase from "firebase";
+
+export default {
+  data() {
+    return {
+      groupName: "",
+      groupDesc: "",
+    };
+  },
+  mounted() {
+    console.log();
+    firebase
+      .firestore()
+      .collection("group")
+      .doc(this.$route.params.groupId)
+      .get()
+      .then((doc) => {        
+        this.groupName = doc.data().name;
+      });
+  },
+};
 </script>
 
 <style></style>
