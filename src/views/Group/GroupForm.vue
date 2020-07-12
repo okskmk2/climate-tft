@@ -46,12 +46,9 @@ export default {
           site: this.site,
         })
         .then(() => {
-          this.$router.push('/Group')
+          this.$router.push("/Group");
         });
     },
-  },
-  mounted() {
-    this.$store.commit("setTitle", "단체 만들기");
   },
 };
 </script>

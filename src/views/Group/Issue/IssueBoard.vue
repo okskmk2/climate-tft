@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>이슈보드</h2>
+    <h3>이슈보드</h3>
     <div class="top-btn-group">
       <button @click="openIssueForm()">만들기</button>
     </div>
@@ -8,9 +8,12 @@
       <section>
         <div>할 일</div>
         <ul>
-          <li><router-link to="/Group/Space/Issue/1">이슈1</router-link></li>
-          <li>121</li>
-          <li>121</li>
+          <li v-for="issue in issues">
+            <router-link
+              :to="'/Group/' + $route.params.groupId + '/Issue/' + issue.id"
+              >{{ issue.name }}</router-link
+            >
+          </li>
         </ul>
       </section>
       <section>
@@ -35,12 +38,32 @@
 </template>
 
 <script>
+import firebase from "firebase";
 import IssueForm from "./IssueForm";
+
 export default {
+  data() {
+    return {
+      issues: [],
+    };
+  },
   mounted() {
-    this.$store.commit("setTitle", "이슈보드");
+    this.getIssues();
   },
   methods: {
+    getIssues() {
+      firebase
+        .firestore()
+        .collection(`group/${this.$route.params.groupId}/issue`)
+        .get()
+        .then((querySnapshot) => {
+          let issues = [];
+          querySnapshot.forEach((doc) =>
+            issues.push({ id: doc.id, ...doc.data() })
+          );
+          this.issues = issues;
+        });
+    },
     openIssueForm() {
       this.$store.commit("setModalInnerComponent", IssueForm);
       this.$store.commit("turnOff");

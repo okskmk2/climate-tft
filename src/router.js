@@ -139,7 +139,7 @@ export default new Router({
               component: IssueForm,
             },
             {
-              path: ":id",
+              path: ":issueId",
               component: IssueDetail,
             },
           ],

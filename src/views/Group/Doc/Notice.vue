@@ -14,7 +14,6 @@
 
 export default {
   mounted(){
-      this.$store.commit('setTitle', "가오클 공지사항");
   }
 }
 </script>

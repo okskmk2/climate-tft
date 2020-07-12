@@ -33,14 +33,6 @@ export default {
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
         .then((user) => {
-          console.log(user);
-          // this.$store.dispatch(
-          //   "setCurrentUser",
-          //   firebase.auth().currentUser.email
-          // );
-          // setTimeout(() => {
-          //   this.$router.push({ path: "myspace" });
-          // }, 0);
           this.$router.go(-1);
         })
         .catch((err) => {

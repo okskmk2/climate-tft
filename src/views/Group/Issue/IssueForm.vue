@@ -18,38 +18,58 @@
       <h3>이슈 만들기</h3>
       <div class="field-row">
         <label>이슈명</label>
-        <input type="text" />
+        <input type="text" v-model="name" />
       </div>
       <div class="field-row">
         <label>내용</label>
-        <textarea style="height:20rem"></textarea>
+        <textarea style="height: 20rem;" v-model="description"></textarea>
       </div>
       <div class="field-row">
         <label>책임자</label>
-        <input type="text" />
+        <input type="text" v-model="assignee" />
       </div>
       <div class="field-row">
         <label>기한</label>
-        <input type="text" />
+        <input type="text" v-model="dueDate" />
       </div>
       <div class="footer-btn-group">
-        <button>만들기</button>
+        <button @click="addIssue">만들기</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import firebase from "firebase";
+
 export default {
-  //   mounted() {
-  //     this.$store.commit("turnOff");
-  //   },
-  //   methods: {
-  //     me() {
-  //       this.$router.go(-1);
-  //       this.$store.commit("turnOn");
-  //     },
-  //   },
+  data() {
+    return {
+      name: "",
+      description: "",
+      assignee: "",
+      dueDate: "",
+    };
+  },
+  methods: {
+    addIssue() {
+      firebase
+        .firestore()
+        .collection("group")
+        .doc(this.$route.params.groupId)
+        .collection("issue")
+        .doc()
+        .set({
+          name: this.name,
+          description: this.description,
+          assignee: this.assignee,
+          dueDate: this.dueDate,
+        })
+        .then(() => {
+          this.$store.commit("closeModal");
+        });
+    },
+  },
 };
 </script>
 

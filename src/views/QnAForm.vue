@@ -1,5 +1,6 @@
 <template>
   <div class="medium-container">
+    <h1>질문하기</h1>
     <form>
       <div class="field-row">
         <label>질문제목 <span class="mandatory">*</span></label>

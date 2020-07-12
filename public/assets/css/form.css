@@ -4,6 +4,7 @@ button {
 
 textarea {
   resize: vertical;
+  font-family: inherit;
 }
 
 textarea.content{

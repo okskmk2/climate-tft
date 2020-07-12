@@ -51,7 +51,7 @@ export default {
     getGroup() {
       firebase
         .firestore()
-        .collection(`group`)
+        .collection("group")
         .get()
         .then((querySnapshot) => {
           let groupList = [];
