@@ -18,19 +18,19 @@
       <h3>이슈 만들기</h3>
       <div class="field-row">
         <label>이슈명</label>
-        <input type="text" v-model="name" />
+        <input type="text" v-model="issue.name" />
       </div>
       <div class="field-row">
         <label>내용</label>
-        <textarea style="height: 20rem;" v-model="description"></textarea>
+        <textarea style="height: 20rem;" v-model="issue.description"></textarea>
       </div>
       <div class="field-row">
         <label>책임자</label>
-        <input type="text" v-model="assignee" />
+        <input type="text" v-model="issue.assignee" />
       </div>
       <div class="field-row">
         <label>기한</label>
-        <input type="text" v-model="dueDate" />
+        <input type="text" v-model="issue.dueDate" />
       </div>
       <div class="footer-btn-group">
         <button @click="addIssue">만들기</button>
@@ -45,10 +45,12 @@ import firebase from "firebase";
 export default {
   data() {
     return {
-      name: "",
-      description: "",
-      assignee: "",
-      dueDate: "",
+      issue: {
+        name: "",
+        description: "",
+        assignee: "",
+        dueDate: "",
+      },
     };
   },
   methods: {
@@ -60,13 +62,16 @@ export default {
         .collection("issue")
         .doc()
         .set({
-          name: this.name,
-          description: this.description,
-          assignee: this.assignee,
-          dueDate: this.dueDate,
+          name: this.issue.name,
+          description: this.issue.description,
+          assignee: this.issue.assignee,
+          dueDate: this.issue.dueDate,
+          status: "todo",
         })
         .then(() => {
           this.$store.commit("closeModal");
+          this.issue = {};
+          this.$store.commit("toggleReloadIssueBoard");
         });
     },
   },

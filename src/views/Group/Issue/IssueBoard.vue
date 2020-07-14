@@ -47,6 +47,16 @@ export default {
       issues: [],
     };
   },
+  computed: {
+    reloadIssueBoard() {
+      return this.$store.state.reloadIssueBoard;
+    },
+  },
+  watch: {
+    reloadIssueBoard(newV, oldV) {
+      this.getIssues();
+    },
+  },
   mounted() {
     this.getIssues();
   },
@@ -65,8 +75,7 @@ export default {
         });
     },
     openIssueForm() {
-      this.$store.commit("setModalInnerComponent", IssueForm);
-      this.$store.commit("turnOff");
+      this.$store.commit("openModal", IssueForm);
     },
   },
 };
