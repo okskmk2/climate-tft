@@ -7,12 +7,11 @@
     <div class="board-container">
       <section>
         <div>할 일</div>
-        <ul>
-          <li v-for="issue in issues">
+        <ul class="issue-ul">
+          <li v-for="issue in issues" class="issue-card">
             <router-link
               :to="'/Group/' + $route.params.groupId + '/Issue/' + issue.id"
-              >{{ issue.name }}</router-link
-            >
+            >{{ issue.name || '제목없음' }}</router-link>
           </li>
         </ul>
       </section>
@@ -44,18 +43,18 @@ import IssueForm from "./IssueForm";
 export default {
   data() {
     return {
-      issues: [],
+      issues: []
     };
   },
   computed: {
     reloadIssueBoard() {
       return this.$store.state.reloadIssueBoard;
-    },
+    }
   },
   watch: {
     reloadIssueBoard() {
       this.getIssues();
-    },
+    }
   },
   mounted() {
     this.getIssues();
@@ -66,9 +65,9 @@ export default {
         .firestore()
         .collection(`group/${this.$route.params.groupId}/issue`)
         .get()
-        .then((querySnapshot) => {
+        .then(querySnapshot => {
           let issues = [];
-          querySnapshot.forEach((doc) =>
+          querySnapshot.forEach(doc =>
             issues.push({ id: doc.id, ...doc.data() })
           );
           this.issues = issues;
@@ -76,8 +75,8 @@ export default {
     },
     openIssueForm() {
       this.$store.commit("openModal", IssueForm);
-    },
-  },
+    }
+  }
 };
 </script>
 

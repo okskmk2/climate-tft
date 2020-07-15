@@ -135,12 +135,13 @@ button {
 }
 
 .card-container > li {
+  box-sizing: border-box;
   display: inline-block;
   vertical-align: top;
   list-style-type: none;
-  width: 351px;
-  margin-right: 73px;
-  margin-bottom: 67px;
+  width: 386px;
+  margin-right: 45px;
+  margin-bottom: 45px;
 }
 
 .card-container > li:nth-child(3n) {
@@ -236,13 +237,12 @@ button {
 
 .space-container {
   display: flex;
-  margin-top: 20px;
 }
 
 .space-container > aside {
-  padding-top: 1rem;
+  padding-top: 2rem;
   min-width: 10rem;
-  margin-right: 2rem;
+  margin-right: 1rem;
   border-right: 1px solid var(--borderColor);
 }
 
@@ -252,7 +252,7 @@ button {
 }
 
 .space-main-container {
-  /* border: 1px solid var(--borderColor); */
+  margin-left: 1rem;
   flex-grow: 1;
 }
 
@@ -260,19 +260,42 @@ button {
   display: flex;
   justify-content: space-between;
   margin-top: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--borderColor);
 }
 
 .board-container {
   display: flex;
 }
-.board-container section:not(:last-child) {
-  margin-right: 10px;
-}
 .board-container section {
-  border: 1px solid var(--borderColor);
   width: 100%;
   box-sizing: border-box;
+  padding: 0 1rem;
 }
+.board-container section:first-child {
+  padding-left: 0;
+}
+.board-container section:not(:last-child) {
+  border-right: 1px solid var(--borderColor);
+}
+
+.issue-ul {
+  padding: 0;
+}
+
+.issue-card {
+  margin-bottom: 4px;
+  font-size: 14px;
+  list-style-type: none;
+  border: 1px solid var(--borderColor);
+  padding: 10px 12px;
+}
+
+.issue-card a {
+  text-decoration: none;
+}
+
+/* etc */
 
 .less-important {
   color: var(--less-important);
