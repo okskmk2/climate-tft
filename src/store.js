@@ -1,5 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import firebase from "firebase";
+import router from "./router";
 
 Vue.use(Vuex);
 // {{$store.state.currentTitle}}
@@ -12,8 +14,15 @@ export default new Vuex.Store({
     snackbarText: "",
     isSnackbarUp: false,
     snackbarText: "",
+    group: {},
+  },
+  getters: {
+    group: (state) => ({ ...state.group }),
   },
   mutations: {
+    setGroup(state, group) {
+      state.group = group;
+    },
     toggleReloadIssueBoard(state) {
       state.reloadIssueBoard = !state.reloadIssueBoard;
     },
@@ -55,6 +64,41 @@ export default new Vuex.Store({
       setTimeout(() => {
         context.commit("setSnackbarText", "");
       }, 4000);
+    },
+    getGroupById(context, id) {
+      firebase
+        .firestore()
+        .collection("group")
+        .doc(id)
+        .get()
+        .then((doc) => {
+          context.commit("setGroup", { id: doc.id, ...doc.data() });
+        });
+    },
+    updateGroup(context, data) {
+      firebase
+        .firestore()
+        .collection("group")
+        .doc(context.state.group.id)
+        .set(data)
+        .then(() => {
+          context.dispatch("snackbar", "저장되었습니다.");
+          context.dispatch("getGroupById", context.state.group.id);
+        });
+    },
+    deleteGroup(context, id) {
+      firebase
+        .firestore()
+        .collection("group")
+        .doc(id)
+        .delete()
+        .then(() => {
+          context.dispatch("snackbar", "삭제되었습니다.").then(
+            setTimeout(() => {
+              router.push({ path: "/Group" });
+            }, 3000)
+          );
+        });
     },
   },
 });

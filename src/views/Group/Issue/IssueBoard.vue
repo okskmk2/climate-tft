@@ -53,7 +53,7 @@ export default {
     },
   },
   watch: {
-    reloadIssueBoard(newV, oldV) {
+    reloadIssueBoard() {
       this.getIssues();
     },
   },

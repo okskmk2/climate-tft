@@ -20,6 +20,8 @@ import DepartmentSpace from "./views/DepartmentSpace.vue";
 import Group from "./views/Group.vue";
 import GroupForm from "./views/Group/GroupForm.vue";
 import GroupSpace from "./views/Group/GroupSpace.vue";
+import GroupSetting from "./views/Group/GroupSetting.vue";
+
 import DocTab from "./views/Group/DocTab.vue";
 import Notice from "./views/Group/Doc/Notice.vue";
 import GroupArchive from "./views/Group/Doc/Archive.vue";
@@ -143,6 +145,10 @@ export default new Router({
               component: IssueDetail,
             },
           ],
+        },
+        {
+          path: "Settings",
+          component: GroupSetting,
         },
       ],
     },
