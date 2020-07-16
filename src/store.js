@@ -58,9 +58,9 @@ export default new Vuex.Store({
       firebase
         .auth()
         .signInWithEmailAndPassword(inputData.email, inputData.password)
-        .then(( userCredential ) => {
+        .then((userCredential) => {
           context.commit("setUser", userCredential.user.toJSON());
-          router.go(-1);
+          router.push({ path: "/" });
         })
         .catch((err) => {
           alert(err.message);
@@ -72,10 +72,31 @@ export default new Vuex.Store({
         .signOut()
         .then(() => {
           context.commit("setUser", null);
+          router.push({ path: "/" });
         })
         .catch((err) => {
           alert(err.message);
         });
+    },
+    signUp(context, inputData) {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(inputData.email, inputData.password)
+        .then((user) => {
+          console.log(user);
+          context.dispatch("signIn", inputData);
+          context.dispatch("setUser", {
+            name: inputData.name,
+            email: inputData.email,
+            uid: user.user.uid,
+          });
+        })
+        .catch((err) => {
+          alert(err.message);
+        });
+    },
+    setUser(context, inputData) {
+      firebase.firestore().collection("users").doc().set(inputData);
     },
     snackbar(context, text) {
       context.commit("setSnackbarText", text);

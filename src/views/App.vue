@@ -18,7 +18,10 @@
             <router-link to="/LoginForm" v-if="!$store.state.currentUser"
               ><span>로그인</span></router-link
             >
-            <a v-if="$store.state.currentUser" @click="signOut"
+            <a
+              v-if="$store.state.currentUser"
+              @click="signOut"
+              style="cursor: pointer;"
               ><span>로그아웃</span></a
             >
             <i18nChanger></i18nChanger>

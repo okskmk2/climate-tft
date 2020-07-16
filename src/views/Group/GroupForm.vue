@@ -2,17 +2,17 @@
   <div class="narrow-container">
     <h1>단체 만들기</h1>
     <form>
-      <div class="field-row">
+      <div class="field">
         <label>단체명 <span class="mandatory">*</span></label>
         <input type="text" v-model="name" />
         <div class="input-error"></div>
       </div>
-      <div class="field-row">
+      <div class="field">
         <label>설명 <span class="mandatory">*</span></label>
         <input type="text" v-model="description" />
         <div class="input-error"></div>
       </div>
-      <div class="field-row">
+      <div class="field">
         <label>홈페이지 <span class="optional">(선택)</span></label>
         <input type="text" v-model="site" />
         <div class="input-error"></div>

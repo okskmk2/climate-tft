@@ -8,7 +8,7 @@
     <select
       v-model="i18n.locale"
       @change="updateHtmlLang()"
-      style="padding: 2px 4px; height: 29px; outline: none;"
+      style="padding: 0 4px; height: 29px; outline: none;"
     >
       <option
         v-for="lang in support_langs"

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>{{ group.name }}</h2>
+    <h2 v-if="group">{{ group.name }}</h2>
     <nav class="space-gnb">
       <div>
         <router-link :to="`/Group/${$route.params.groupId}/Doc`"

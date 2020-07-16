@@ -1,15 +1,15 @@
 <template>
   <div>
     <h3>설정</h3>
-    <div class="field-row">
+    <div class="field">
       <label>공간명</label>
       <input type="text" v-model="group.name" />
     </div>
-    <div class="field-row">
+    <div class="field">
       <label>설명</label>
       <input type="text" v-model="group.description" />
     </div>
-    <div class="field-row">
+    <div class="field">
       <label>사이트 주소</label>
       <input type="text" v-model="group.site" />
     </div>

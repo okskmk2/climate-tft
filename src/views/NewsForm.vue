@@ -2,7 +2,7 @@
   <div class="medium-container">
     <h1>뉴스 쓰기</h1>
     <form>
-      <div class="field-row">
+      <div class="field">
         <label
           >링크뉴스입니까?
           <input
@@ -13,15 +13,15 @@
           />
         </label>
       </div>
-      <div class="field-row">
+      <div class="field">
         <label>기사제목 <span class="mandatory">*</span></label>
         <input type="text" />
       </div>
-      <div v-if="isLinkNews" class="field-row">
+      <div v-if="isLinkNews" class="field">
         <label>링크 <span class="mandatory">*</span></label>
         <textarea></textarea>
       </div>
-      <div v-if="!isLinkNews" class="field-row">
+      <div v-if="!isLinkNews" class="field">
         <label>내용 <span class="mandatory">*</span></label>
         <textarea class="content"></textarea>
       </div>

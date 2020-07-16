@@ -16,19 +16,19 @@
         ></i>
       </div>
       <h3>이슈 만들기</h3>
-      <div class="field-row">
+      <div class="field">
         <label>이슈명</label>
         <input type="text" v-model="issue.name" />
       </div>
-      <div class="field-row">
+      <div class="field">
         <label>내용</label>
         <textarea style="height: 20rem;" v-model="issue.description"></textarea>
       </div>
-      <div class="field-row">
+      <div class="field">
         <label>책임자</label>
         <input type="text" v-model="issue.assignee" />
       </div>
-      <div class="field-row">
+      <div class="field">
         <label>기한</label>
         <input type="text" v-model="issue.dueDate" />
       </div>

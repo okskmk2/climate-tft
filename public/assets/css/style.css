@@ -2,7 +2,7 @@
 
 :root {
   --borderColor: #ddd;
-  --blue: #0068d4;
+  --blue: #93bbe4;
   --red: rgb(239, 52, 77);
   --light-gray: #f7f7f7;
   --less-important: #555;
@@ -41,10 +41,6 @@ h1 {
 
 h2::after {
   content: "\00a0 ";
-}
-
-h4 {
-  margin: 0 0 20px;
 }
 
 label {
@@ -268,6 +264,13 @@ button {
 .board-container {
   display: flex;
 }
+
+.board-container h4 {
+  font-size: 0.9em;
+  font-weight: normal;
+  margin: 0 0 8px;
+  color: var(--less-important);
+}
 .board-container section {
   width: 100%;
   box-sizing: border-box;
@@ -294,6 +297,46 @@ button {
 
 .issue-card a {
   text-decoration: none;
+}
+
+.issue-detail h3 {
+  margin-top: 32px;
+}
+
+.issue-detail h3 input:focus {
+  padding: 8px;
+}
+
+.issue-detail input[type="text"],
+.issue-detail select {
+  font-size: inherit;
+  border-width: 0;
+}
+
+.issue-detail input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.issue-detail .meta-container {
+  padding: 1rem 2rem;
+  margin-left: 1rem;
+  color: var(--less-important);
+}
+
+.issue-detail .meta-field {
+  margin-bottom: 24px;
+}
+
+.issue-detail .meta-field input,
+.issue-detail .meta-field select {
+  padding: 4px;
+  outline: none;
+}
+
+.issue-detail .meta-field label {
+  font-weight: bold;
+  font-size: 0.9em;
 }
 
 /* etc */
