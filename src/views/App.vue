@@ -12,8 +12,15 @@
           <gnb></gnb>
           <div class="unb">
             <router-link to="/Sponsor"><span>후원하기</span></router-link>
-            <router-link to="/SignUpForm"><span>회원가입</span></router-link>
-            <router-link to="/LoginForm"><span>로그인</span></router-link>
+            <router-link to="/SignUpForm" v-if="!$store.state.currentUser"
+              ><span>회원가입</span></router-link
+            >
+            <router-link to="/LoginForm" v-if="!$store.state.currentUser"
+              ><span>로그인</span></router-link
+            >
+            <a v-if="$store.state.currentUser" @click="signOut"
+              ><span>로그아웃</span></a
+            >
             <i18nChanger></i18nChanger>
           </div>
         </div>
@@ -45,6 +52,11 @@ export default {
     return {
       modalOpen: false,
     };
+  },
+  methods: {
+    signOut() {
+      this.$store.dispatch("signOut");
+    },
   },
   components: { i18nChanger, gnb, Modal },
 };

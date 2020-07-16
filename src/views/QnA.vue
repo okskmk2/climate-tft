@@ -63,9 +63,6 @@ export default {
   components: {
     SearchInput,
   },
-  mounted() {
-    this.$store.commit("setTitle", "질문과 답변");
-  },
 };
 </script>
 

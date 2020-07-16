@@ -168,9 +168,6 @@ export default {
   components: {
     SearchInput,
   },
-    mounted(){
-      this.$store.commit('setTitle', "회사");
-  }
 };
 </script>
 

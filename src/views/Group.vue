@@ -7,8 +7,8 @@
     </div>
     <ul class="card-container">
       <li v-for="group in groupList">
-        <div class="title">{{ group.name }}</div>
         <div class="card">
+          <div class="title">{{ group.name }}</div>
           <div class="desc">{{ group.description }}</div>
           <table>
             <tr>

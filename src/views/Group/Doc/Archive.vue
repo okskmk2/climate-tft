@@ -12,9 +12,6 @@
 
 <script>
 export default {
-  mounted(){
-      this.$store.commit('setTitle', "자료실");
-  }
 }
 </script>
 

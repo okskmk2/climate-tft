@@ -61,9 +61,6 @@ export default {
   components: {
     SearchInput,
   },
-  mounted() {
-    this.$store.commit("setTitle", "뉴스");
-  },
 };
 </script>
 

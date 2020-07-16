@@ -11,9 +11,6 @@
 
 <script>
 export default {
-  mounted(){
-      this.$store.commit('setTitle', "회의록");
-  }
 }
 </script>
 

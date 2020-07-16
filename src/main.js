@@ -24,7 +24,12 @@ var firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-firebase.firestore();
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    store.commit("setUser", user.toJSON());
+  }
+});
 
 Vue.config.productionTip = false;
 Vue.prototype.axios = axios;

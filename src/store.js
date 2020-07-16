@@ -7,28 +7,27 @@ Vue.use(Vuex);
 // {{$store.state.currentTitle}}
 export default new Vuex.Store({
   state: {
-    currentTitle: "",
     isTurnOff: false,
     modalInnerComponent: null,
     reloadIssueBoard: false,
     snackbarText: "",
     isSnackbarUp: false,
     snackbarText: "",
-    group: {},
+    group: null,
+    currentUser: null,
   },
   getters: {
     group: (state) => ({ ...state.group }),
   },
   mutations: {
+    setUser(state, user) {
+      state.currentUser = user;
+    },
     setGroup(state, group) {
       state.group = group;
     },
     toggleReloadIssueBoard(state) {
       state.reloadIssueBoard = !state.reloadIssueBoard;
-    },
-    setTitle(state, title) {
-      state.currentTitle = title;
-      document.title = title + " | 기후위기TFT";
     },
     turnOff(state) {
       state.isTurnOff = true;
@@ -55,6 +54,29 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    signIn(context, inputData) {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(inputData.email, inputData.password)
+        .then(( userCredential ) => {
+          context.commit("setUser", userCredential.user.toJSON());
+          router.go(-1);
+        })
+        .catch((err) => {
+          alert(err.message);
+        });
+    },
+    signOut(context) {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          context.commit("setUser", null);
+        })
+        .catch((err) => {
+          alert(err.message);
+        });
+    },
     snackbar(context, text) {
       context.commit("setSnackbarText", text);
       context.commit("showSnackbar");

@@ -29,15 +29,10 @@ export default {
   },
   methods: {
     signIn() {
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then((user) => {
-          this.$router.go(-1);
-        })
-        .catch((err) => {
-          alert(err.message);
-        });
+      this.$store.dispatch("signIn", {
+        email: this.email,
+        password: this.password,
+      });
     },
   },
 };

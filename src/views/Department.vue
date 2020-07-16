@@ -194,9 +194,6 @@ export default {
   components: {
     SearchInput,
   },
-    mounted(){
-      this.$store.commit('setTitle', "부서들");
-  }
 };
 </script>
 
