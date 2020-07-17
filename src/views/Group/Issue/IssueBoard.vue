@@ -12,7 +12,7 @@
             <router-link
               :to="'/Group/' + $route.params.groupId + '/Issue/' + issue.id"
               >{{ issue.name || "제목없음" }}</router-link
-            >
+            ><span>{{ issue.assignee }}</span>
           </li>
         </ul>
       </section>
@@ -23,7 +23,7 @@
             <router-link
               :to="'/Group/' + $route.params.groupId + '/Issue/' + issue.id"
               >{{ issue.name || "제목없음" }}</router-link
-            >
+            ><span>{{ issue.assignee }}</span>
           </li>
         </ul>
       </section>
@@ -34,7 +34,7 @@
             <router-link
               :to="'/Group/' + $route.params.groupId + '/Issue/' + issue.id"
               >{{ issue.name || "제목없음" }}</router-link
-            >
+            ><span>{{ issue.assignee }}</span>
           </li>
         </ul>
       </section>
@@ -45,7 +45,7 @@
             <router-link
               :to="'/Group/' + $route.params.groupId + '/Issue/' + issue.id"
               >{{ issue.name || "제목없음" }}</router-link
-            >
+            ><span>{{ issue.assignee }}</span>
           </li>
         </ul>
       </section>

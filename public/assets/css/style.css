@@ -61,15 +61,22 @@ button {
 }
 
 .narrow-container {
+  box-sizing: border-box;
   width: 25rem;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1rem !important;
 }
 
 .medium-container {
+  box-sizing: border-box;
   width: 55rem;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1rem !important;
+}
+
+.full-container {
+  box-sizing: border-box;
+  padding: 0 2rem;
 }
 
 .header-inner {
@@ -125,6 +132,12 @@ button {
   margin-right: 20px;
 }
 
+.unb select {
+  padding: 0 4px;
+  height: 29px;
+  outline: none;
+}
+
 .card-container {
   margin: 0;
   padding: 0;
@@ -140,7 +153,11 @@ button {
   margin-bottom: 45px;
 }
 
-.card-container > li:nth-child(3n) {
+.container .card-container > li:nth-child(3n) {
+  margin-right: 0;
+}
+
+.full-container .card-container > li:nth-child(4n) {
   margin-right: 0;
 }
 
@@ -288,15 +305,23 @@ button {
 }
 
 .issue-card {
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   font-size: 14px;
   list-style-type: none;
-  border: 1px solid var(--borderColor);
-  padding: 10px 12px;
+  box-shadow: 1px 1px 3px 1px #ddd;
+  padding: 12px 14px;
 }
 
 .issue-card a {
   text-decoration: none;
+}
+
+.issue-card span {
+  display: inline-block;
+  margin: 4px;
+  padding: 2px 6px;
+  background-color: var(--light-gray);
+  border-radius: 6px;
 }
 
 .issue-detail h3 {
@@ -339,6 +364,14 @@ button {
   font-size: 0.9em;
 }
 
+.modal-container {
+  width: 35rem;
+  margin: 60px auto;
+  border-radius: 8px;
+  background-color: white;
+  padding: 30px 44px 39px;
+}
+
 /* etc */
 
 .less-important {
@@ -369,6 +402,7 @@ button {
 /* importants */
 
 .turnOff {
+  z-index: 1;
   position: absolute;
   width: 100%;
   height: 100%;

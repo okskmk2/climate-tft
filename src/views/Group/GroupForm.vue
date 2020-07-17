@@ -1,6 +1,9 @@
 <template>
-  <div class="narrow-container">
-    <h1>단체 만들기</h1>
+  <div class="modal-container">
+    <div style="text-align: right;">
+      <i class="fa fa-times clickable" @click="$store.commit('closeModal')"></i>
+    </div>
+    <h3>단체 만들기</h3>
     <form>
       <div class="field">
         <label>단체명 <span class="mandatory">*</span></label>

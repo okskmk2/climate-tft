@@ -15,6 +15,7 @@ export default new Vuex.Store({
     snackbarText: "",
     group: null,
     currentUser: null,
+    containerType:'normal'
   },
   getters: {
     group: (state) => ({ ...state.group }),

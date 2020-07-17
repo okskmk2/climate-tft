@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
+import Settings from "./views/Settings.vue";
 import Department from "./views/Department.vue";
 import Corporation from "./views/Corporation.vue";
 import News from "./views/News.vue";
@@ -18,7 +19,6 @@ import DepartmentSpace from "./views/DepartmentSpace.vue";
 
 // Group
 import Group from "./views/Group.vue";
-import GroupForm from "./views/Group/GroupForm.vue";
 import GroupSpace from "./views/Group/GroupSpace.vue";
 import GroupSetting from "./views/Group/GroupSetting.vue";
 
@@ -47,12 +47,12 @@ export default new Router({
       component: Department,
     },
     {
-      path: "/Group",
-      component: Group,
+      path: "/Settings",
+      component: Settings,
     },
     {
-      path: "/GroupForm",
-      component: GroupForm,
+      path: "/Group",
+      component: Group,
     },
     {
       path: "/Corporation",

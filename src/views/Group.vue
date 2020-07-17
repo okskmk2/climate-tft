@@ -3,7 +3,7 @@
     <h1>연합단체들</h1>
     <div class="top-btn-group">
       <SearchInput></SearchInput>
-      <router-link to="/GroupForm"><button>등록하기</button></router-link>
+      <button @click="openGroupForm">등록하기</button>
     </div>
     <ul class="card-container">
       <li v-for="group in groupList">
@@ -35,6 +35,7 @@
 import firebase from "firebase";
 
 import SearchInput from "../components/search-input";
+import GroupForm from "./Group/GroupForm";
 export default {
   data() {
     return {
@@ -43,6 +44,7 @@ export default {
   },
   components: {
     SearchInput,
+    GroupForm,
   },
   mounted() {
     this.getGroup();
@@ -60,6 +62,9 @@ export default {
           );
           this.groupList = groupList;
         });
+    },
+    openGroupForm() {
+      this.$store.commit("openModal", GroupForm);
     },
   },
 };

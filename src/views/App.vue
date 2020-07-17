@@ -2,7 +2,7 @@
   <div class="app">
     <Modal></Modal>
     <header>
-      <div class="header-inner container">
+      <div class="header-inner" :class="containerType">
         <div class="brand-text">
           <router-link to="/">
             {{ $t("brand") }}
@@ -14,24 +14,23 @@
             <router-link to="/Sponsor"><span>후원하기</span></router-link>
             <router-link to="/SignUpForm" v-if="!$store.state.currentUser"
               ><span>회원가입</span></router-link
-            >
-            <router-link to="/LoginForm" v-if="!$store.state.currentUser"
+            ><router-link to="/LoginForm" v-if="!$store.state.currentUser"
               ><span>로그인</span></router-link
-            >
-            <a
+            ><a
               v-if="$store.state.currentUser"
               @click="signOut"
               style="cursor: pointer;"
               ><span>로그아웃</span></a
             >
+            <router-link to="/Settings"><span>설정</span></router-link>
             <i18nChanger></i18nChanger>
           </div>
         </div>
       </div>
     </header>
-    <router-view class="container main" />
+    <router-view class="main" :class="containerType" />
     <footer>
-      <div class="footer-inner container">
+      <div class="footer-inner" :class="containerType">
         <i class="fa fa-lg fa-facebook-official fa-fw" aria-hidden="true"></i>
         <i class="fa fa-lg fa-instagram fa-fw" aria-hidden="true"></i>
       </div>
@@ -55,6 +54,18 @@ export default {
     return {
       modalOpen: false,
     };
+  },
+  computed: {
+    containerType() {
+      switch (this.$store.state.containerType) {
+        case "normal":
+          return "container";
+        case "full":
+          return "full-container";
+        default:
+          return "container";
+      }
+    },
   },
   methods: {
     signOut() {
