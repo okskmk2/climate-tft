@@ -10,7 +10,7 @@
     </div>
     <div class="field">
       <label>내용</label>
-      <textarea style="height: 20rem;" v-model="issue.description"></textarea>
+      <div ref="editorjsIssueForm"></div>
     </div>
     <div class="field">
       <label>책임자</label>
@@ -18,7 +18,7 @@
     </div>
     <div class="field">
       <label>기한</label>
-      <input type="text" v-model="issue.dueDate" />
+      <input type="date" v-model="issue.dueDate" />
     </div>
     <div class="footer-btn-group">
       <button @click="addIssue">만들기</button>
@@ -28,6 +28,9 @@
 
 <script>
 import firebase from "firebase";
+import EditorJS from "@editorjs/editorjs";
+import Header from "@editorjs/header";
+import List from "@editorjs/list";
 
 export default {
   data() {
@@ -38,27 +41,54 @@ export default {
         assignee: "",
         dueDate: "",
       },
+      editor: null,
     };
+  },
+  mounted() {
+    this.editor = new EditorJS({
+      holder: this.$refs.editorjsIssueForm,
+      minHeight:100,
+      tools: {
+        header: {
+          class: Header,
+          inlineToolbar: true,
+        },
+        list: {
+          class: List,
+          inlineToolbar: true,
+        },
+      },
+    });
   },
   methods: {
     addIssue() {
-      firebase
-        .firestore()
-        .collection("group")
-        .doc(this.$route.params.groupId)
-        .collection("issue")
-        .doc()
-        .set({
-          name: this.issue.name,
-          description: this.issue.description,
-          assignee: this.issue.assignee,
-          dueDate: this.issue.dueDate,
-          status: "todo",
+      this.editor
+        .save()
+        .then((outputData) => {
+          console.log(outputData);
+          this.issue.description = outputData;
+          firebase
+            .firestore()
+            .collection("group")
+            .doc(this.$route.params.groupId)
+            .collection("issue")
+            .doc()
+            .set({
+              name: this.issue.name,
+              description: this.issue.description,
+              assignee: this.issue.assignee,
+              dueDate: this.issue.dueDate,
+              status: "todo",
+              reporter:this.$store.state.currentUser.email
+            })
+            .then(() => {
+              this.$store.commit("closeModal");
+              this.issue = {};
+              this.$store.commit("toggleReloadIssueBoard");
+            });
         })
-        .then(() => {
-          this.$store.commit("closeModal");
-          this.issue = {};
-          this.$store.commit("toggleReloadIssueBoard");
+        .catch((error) => {
+          console.log("Saving failed: ", error);
         });
     },
   },

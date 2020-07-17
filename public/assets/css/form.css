@@ -1,3 +1,8 @@
+input, select, textarea {
+  color: inherit;
+  font-family: inherit;
+}
+
 button {
   padding: 6px 17px;
 }

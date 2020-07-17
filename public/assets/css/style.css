@@ -1,4 +1,5 @@
 @import "./form.css";
+@import "./editorjs.css";
 
 :root {
   --borderColor: #ddd;
@@ -50,7 +51,7 @@ label {
 /* colors */
 body,
 button {
-  color: #222;
+  color: #322732;
 }
 
 .container {
@@ -296,6 +297,9 @@ button {
 .board-container section:first-child {
   padding-left: 0;
 }
+.board-container section:last-child {
+  padding-right: 0;
+}
 .board-container section:not(:last-child) {
   border-right: 1px solid var(--borderColor);
 }
@@ -328,7 +332,15 @@ button {
   margin-top: 32px;
 }
 
-.issue-detail h3 input:focus {
+.issue-detail h3 input {
+  padding: 8px;
+}
+.issue-detail h3 input[type="text"] {
+  font-weight: inherit;
+}
+
+.issue-detail-container {
+  display: flex;
   padding: 8px;
 }
 
