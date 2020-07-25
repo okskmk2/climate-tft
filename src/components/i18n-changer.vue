@@ -1,7 +1,7 @@
 <template>
   <span style="display: flex; align-items: center;">
     <i
-      class="fa fa-globe fa-fw"
+      class="fas fa-language fa-fw"
       aria-hidden="true"
       style="font-size: 21px; margin-right: 3px;"
     ></i>

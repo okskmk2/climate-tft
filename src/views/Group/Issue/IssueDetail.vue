@@ -1,12 +1,22 @@
 <template>
   <div style="position: relative;" class="issue-detail">
-    <h3>
-      <input type="text" v-model="issue.name" />
-    </h3>
+    <header class="header3">
+      <h3>
+        <input type="text" v-model="issue.name" />
+      </h3>
+      <div class="btn-group">
+        <button @click="updateIssue" class="icon-btn">
+          <span class="fas fa-save"></span>저장
+        </button>
+        <button @click="deleteIssue" class="icon-btn">
+          <span class="fas fa-trash"></span>삭제
+        </button>
+      </div>
+    </header>
     <div class="issue-detail-container">
       <section style="flex-grow: 1;">
         <div class="field">
-          <div ref="editorjsIssueDetail"></div>
+          <textarea class="content" v-model="issue.description"></textarea>
         </div>
         <div>코멘트</div>
         <div>코멘트 영역</div>
@@ -32,7 +42,7 @@
         </div>
         <div class="meta-field" v-if="issue.reporter">
           <label>보고자</label>
-          <span>{{issue.reporter}}</span>
+          <span>{{ issue.reporter }}</span>
         </div>
         <div class="meta-field">
           <label style="margin-bottom: 4px;">기한</label>
@@ -43,10 +53,6 @@
             style="padding: 2px 6px;"
           />
         </div>
-        <div>
-          <button @click="updateIssue">저장하기</button>
-          <button @click="deleteIssue">이슈삭제</button>
-        </div>
       </section>
     </div>
     <Snackbar />
@@ -56,9 +62,6 @@
 <script>
 import Snackbar from "../../../components/Snackbar";
 import firebase from "firebase";
-import EditorJS from "@editorjs/editorjs";
-import Header from "@editorjs/header";
-import List from "@editorjs/list";
 
 export default {
   data() {
@@ -82,52 +85,20 @@ export default {
         .get()
         .then((doc) => {
           this.issue = { id: doc.id, ...doc.data() };
-          if (!doc.data().description.blocks) {
-            this.issue.description = {
-              blocks: [
-                {
-                  type: "paragraph",
-                  data: {
-                    text: doc.data().description,
-                  },
-                },
-              ],
-              time: 1594998881955,
-              version: "2.18.0",
-            };
-          }
-          this.editor = new EditorJS({
-            holder: this.$refs.editorjsIssueDetail,
-            minHeight: 100,
-            tools: {
-              header: {
-                class: Header,
-                inlineToolbar: true,
-              },
-              list: {
-                class: List,
-                inlineToolbar: true,
-              },
-            },
-            data: this.issue.description,
-          });
         });
     },
     updateIssue() {
-      this.editor.save().then((savedDate) => {
-        this.issue.description = savedDate;
-        firebase
-          .firestore()
-          .doc(
-            `group/${this.$route.params.groupId}/issue/${this.$route.params.issueId}`
-          )
-          .set({
-            ...this.issue,
-          })
-          .then(() => {
-            this.$store.dispatch("snackbar", "저장되었습니다.");
-          });
-      });
+      firebase
+        .firestore()
+        .doc(
+          `group/${this.$route.params.groupId}/issue/${this.$route.params.issueId}`
+        )
+        .set({
+          ...this.issue,
+        })
+        .then(() => {
+          this.$store.dispatch("snackbar", "저장되었습니다.");
+        });
     },
     getUsers() {
       firebase

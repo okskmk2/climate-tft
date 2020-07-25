@@ -1,6 +1,14 @@
 <template>
   <div>
-    <h2 v-if="group">{{ group.name }}</h2>
+    <header class='space-header'>
+      <h2 v-if="group">{{ group.name }}</h2>
+      <div>
+        <router-link :to="`/Group/${$route.params.groupId}/Settings`"
+         class="fas fa-cog"
+          ></router-link
+        >
+      </div>
+    </header>
     <nav class="space-gnb">
       <div>
         <router-link :to="`/Group/${$route.params.groupId}/Doc`"
@@ -9,11 +17,6 @@
         |
         <router-link :to="`/Group/${$route.params.groupId}/Issue`"
           >이슈</router-link
-        >
-      </div>
-      <div>
-        <router-link :to="`/Group/${$route.params.groupId}/Settings`"
-          >설정</router-link
         >
       </div>
     </nav>

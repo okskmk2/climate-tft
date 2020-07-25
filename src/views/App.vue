@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <Modal></Modal>
-    <header>
+    <header class="app-header">
       <div class="header-inner" :class="containerType">
         <div class="brand-text">
           <router-link to="/">
@@ -21,6 +21,11 @@
               @click="signOut"
               style="cursor: pointer;"
               ><span>로그아웃</span></a
+            >
+            <a
+              v-if="$store.state.currentUser"
+              style="cursor: pointer;"
+              ><span>나의 공간</span></a
             >
             <router-link to="/Settings"><span>설정</span></router-link>
             <i18nChanger></i18nChanger>

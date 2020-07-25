@@ -3,11 +3,15 @@
 
 :root {
   --borderColor: #ddd;
+  --borderColor2: #bbb;
+  --borderColor3: #888;
   --blue: #93bbe4;
   --red: rgb(239, 52, 77);
   --light-gray: #f7f7f7;
   --less-important: #555;
   --animation: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  --boxShadow: 1px 1px 3px 1px #ddd;
+  --boxShadow2: 1px 1px 3px 1px #dfdfdf;
 }
 
 .app {
@@ -26,7 +30,7 @@ body {
   overflow-y: scroll;
 }
 
-header {
+.app-header {
   border-bottom: 1px solid var(--borderColor);
 }
 
@@ -77,13 +81,27 @@ button {
 
 .full-container {
   box-sizing: border-box;
-  padding: 0 2rem;
+  padding: 0 3rem;
 }
 
 .header-inner {
   display: flex;
   padding-top: 18px;
   padding-bottom: 15px;
+}
+
+.header3 {
+  display: flex;
+  align-items: flex;
+  margin-bottom: 24px;
+}
+
+.header3 h3 {
+  flex-grow: 1;
+}
+
+.header3 .btn-group button:not(:last-child) {
+  margin-right: 8px;
 }
 
 .footer-inner {
@@ -186,7 +204,9 @@ button {
   box-sizing: border-box;
   min-height: 290px;
   padding: 25px 30px 20px;
-  border: 1px solid var(--borderColor);
+  /* box-shadow: var(--boxShadow2); */
+  border: 1px solid var(--borderColor2);
+  border-radius: 3px;
 }
 
 .card table {
@@ -258,7 +278,7 @@ button {
   padding-top: 2rem;
   min-width: 10rem;
   margin-right: 1rem;
-  border-right: 1px solid var(--borderColor);
+  /* border-right: 1px solid var(--borderColor); */
 }
 
 .space-container > aside > a {
@@ -271,12 +291,21 @@ button {
   flex-grow: 1;
 }
 
+.space-header {
+  display: flex;
+  align-items: center;
+}
+
+.space-header h2 {
+  flex-grow: 1;
+  color: var(--less-important);
+}
+
 .space-gnb {
   display: flex;
-  justify-content: space-between;
-  margin-top: 32px;
+  margin-top: 16px;
   padding-bottom: 16px;
-  border-bottom: 1px solid var(--borderColor);
+  /* border-bottom: 1px solid var(--borderColor); */
 }
 
 .board-container {
@@ -312,7 +341,7 @@ button {
   margin-bottom: 8px;
   font-size: 14px;
   list-style-type: none;
-  box-shadow: 1px 1px 3px 1px #ddd;
+  box-shadow: var(--boxShadow);
   padding: 12px 14px;
 }
 
@@ -328,10 +357,6 @@ button {
   border-radius: 6px;
 }
 
-.issue-detail h3 {
-  margin-top: 32px;
-}
-
 .issue-detail h3 input {
   padding: 8px;
 }
@@ -341,7 +366,6 @@ button {
 
 .issue-detail-container {
   display: flex;
-  padding: 8px;
 }
 
 .issue-detail input[type="text"],

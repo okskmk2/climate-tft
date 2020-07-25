@@ -1,9 +1,13 @@
 <template>
   <div>
-    <h3>이슈보드</h3>
-    <div class="top-btn-group">
-      <button @click="openIssueForm()">만들기</button>
-    </div>
+    <header class='header3'>
+      <h3>이슈보드</h3>
+      <div>
+        <button @click="openIssueForm()" class="icon-btn">
+          <span class="fas fa-plus-square"></span>만들기
+        </button>
+      </div>
+    </header>
     <div class="board-container">
       <section>
         <h4>할 일</h4>
