@@ -2,7 +2,7 @@
   <div>
     <header class='header3'>
       <h3>이슈보드</h3>
-      <div>
+      <div v-if="$store.state.currentUser">
         <button @click="openIssueForm()" class="icon-btn">
           <span class="fas fa-plus-square"></span>만들기
         </button>

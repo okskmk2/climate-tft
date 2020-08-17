@@ -3,7 +3,7 @@
     <h1>뉴스</h1>
     <div class="top-btn-group">
       <SearchInput></SearchInput>
-      <router-link to="/NewsForm"><button>글쓰기</button></router-link>
+      <router-link to="/NewsForm" v-if="$store.state.currentUser"><button>글쓰기</button></router-link>
     </div>
     <ul class="news-container">
       <li>

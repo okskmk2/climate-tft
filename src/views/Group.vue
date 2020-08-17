@@ -3,7 +3,7 @@
     <h1>연합단체들</h1>
     <div class="top-btn-group">
       <SearchInput></SearchInput>
-      <button @click="openGroupForm">등록하기</button>
+      <button @click="openGroupForm" v-if="$store.state.currentUser">등록하기</button>
     </div>
     <ul class="card-container">
       <li v-for="group in groupList">
