@@ -4,7 +4,6 @@ import Home from "./views/Home.vue";
 import Settings from "./views/Settings.vue";
 import Department from "./views/Department.vue";
 import Corporation from "./views/Corporation.vue";
-import News from "./views/News.vue";
 import QnA from "./views/QnA.vue";
 import Archive from "./views/Archive.vue";
 import Sponsor from "./views/Sponsor.vue";
@@ -13,6 +12,8 @@ import SignUpForm from "./views/SignUpForm.vue";
 import LoginForm from "./views/LoginForm.vue";
 import QnAForm from "./views/QnAForm.vue";
 
+import News from "./views/News.vue";
+import NewsDetail from "./views/NewsDetail.vue";
 import NewsForm from "./views/NewsForm.vue";
 
 import DepartmentSpace from "./views/DepartmentSpace.vue";
@@ -20,10 +21,13 @@ import DepartmentSpace from "./views/DepartmentSpace.vue";
 // Group
 import Group from "./views/Group.vue";
 import GroupSpace from "./views/Group/GroupSpace.vue";
-import GroupSetting from "./views/Group/GroupSetting.vue";
+import GroupSettingsTab from "./views/Group/Settings/Tab.vue";
+import GroupSettingsHome from "./views/Group/Settings/Home.vue";
+import GroupSettingsMember from "./views/Group/Settings/Member.vue";
 
 import DocTab from "./views/Group/DocTab.vue";
 import Notice from "./views/Group/Doc/Notice.vue";
+import Event from "./views/Group/Doc/Event.vue";
 import GroupArchive from "./views/Group/Doc/Archive.vue";
 import Logs from "./views/Group/Doc/Logs.vue";
 
@@ -61,6 +65,10 @@ export default new Router({
     {
       path: "/News",
       component: News,
+    },
+    {
+      path: "/News/:newsId",
+      component: NewsDetail,
     },
     {
       path: "/NewsForm",
@@ -122,6 +130,10 @@ export default new Router({
               path: "Logs",
               component: Logs,
             },
+            {
+              path: "Event",
+              component: Event,
+            },
           ],
         },
         {
@@ -148,7 +160,21 @@ export default new Router({
         },
         {
           path: "Settings",
-          component: GroupSetting,
+          component: GroupSettingsTab,
+          children: [
+            {
+              path: "",
+              redirect: "/Group/:groupId/Settings/Home",
+            },
+            {
+              path: "Home",
+              component: GroupSettingsHome,
+            },
+            {
+              path: "Member",
+              component: GroupSettingsMember,
+            },
+          ],
         },
       ],
     },

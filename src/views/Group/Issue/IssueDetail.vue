@@ -68,15 +68,14 @@ export default {
     return {
       issue: {},
       users: [],
-      editor: null,
     };
   },
   mounted() {
-    this.getIssues();
+    this.getIssue();
     this.getUsers();
   },
   methods: {
-    getIssues() {
+    getIssue() {
       firebase
         .firestore()
         .doc(

@@ -30,11 +30,21 @@ body {
   overflow-y: scroll;
 }
 
+pre {
+  font-family: inherit;
+}
+
 .app-header {
   border-bottom: 1px solid var(--borderColor);
 }
 
+.app-header a {
+  text-decoration: none;
+  color: inherit;
+}
+
 footer {
+  margin-top: 1rem;
   border-top: 1px solid var(--borderColor);
   background-color: var(--light-gray);
 }
@@ -128,7 +138,6 @@ button {
 
 .gnb a {
   font-size: 17px;
-  text-decoration: none;
   padding: 6px;
   border-bottom: 2px solid transparent;
   transition: border var(--animation) 350ms;
@@ -234,10 +243,15 @@ button {
   margin-left: 20px;
 }
 
-.top-btn-group {
+.top-ctrl-group {
   display: flex;
   justify-content: space-between;
   margin-bottom: 36px;
+}
+
+.a-btn {
+  display: inline-flex;
+  text-decoration: none;
 }
 
 .qna-container {

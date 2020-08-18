@@ -24,8 +24,8 @@ export default {
 
 .search-input > i {
   position: absolute;
-  top: 7px;
-  right: 8px;
+  top: 9px;
+  right: 9px;
   color: #444;
   cursor: pointer;
 }

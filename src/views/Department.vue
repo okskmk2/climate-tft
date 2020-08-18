@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>부서들</h1>
-    <div class="top-btn-group">
+    <div class="top-ctrl-group">
       <SearchInput></SearchInput>
       <button>등록하기</button>
     </div>

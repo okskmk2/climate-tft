@@ -1,10 +1,10 @@
 <template>
   <div>
     <header class="header3">
-      <h3>자료실</h3>
+      <h3>일정</h3>
       <div class="btn-group">
         <button class="icon-btn">
-          <span class="fas fa-plus-square"></span>글쓰기
+          <span class="fas fa-plus-square"></span>추가하기
         </button>
       </div>
     </header>

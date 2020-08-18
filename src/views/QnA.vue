@@ -1,9 +1,11 @@
 <template>
   <div>
     <h1>질문과 답변</h1>
-    <div class="top-btn-group">
+    <div class="top-ctrl-group">
       <SearchInput></SearchInput>
-      <router-link to="/QnAForm"><button>질문하기</button></router-link>
+      <router-link to="/QnAForm" class="a-btn"
+        ><button>질문하기</button></router-link
+      >
     </div>
     <ul class="qna-container">
       <li>

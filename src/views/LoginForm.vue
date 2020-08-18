@@ -1,17 +1,17 @@
 <template>
   <div class="narrow-container">
     <h1>로그인</h1>
-    <form @submit.prevent>
+    <form @submit="signIn">
       <div class="field">
         <label>아이디(이메일)</label>
-        <input type="text" v-model="email" class='autofocus'/>
+        <input type="email" v-model="email" class="autofocus" required />
       </div>
       <div class="field">
         <label>비밀번호</label>
-        <input type="password" v-model="password" />
+        <input type="password" v-model="password" required />
       </div>
       <div class="footer-btn-group">
-        <button @click="signIn">로그인</button>
+        <button>로그인</button>
       </div>
     </form>
   </div>
@@ -27,8 +27,8 @@ export default {
       password: "",
     };
   },
-  mounted(){
-    document.querySelector('.autofocus').focus();
+  mounted() {
+    document.querySelector(".autofocus").focus();
   },
   methods: {
     signIn() {

@@ -5,6 +5,9 @@
         <router-link :to="'/Group/' + $route.params.groupId + '/Doc/Notice'"
           >공지사항</router-link
         >
+        <router-link :to="'/Group/' + $route.params.groupId + '/Doc/Event'"
+          >일정</router-link
+        >
         <router-link :to="'/Group/' + $route.params.groupId + '/Doc/Logs'"
           >회의록</router-link
         >

@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import Snackbar from "../../components/Snackbar";
+import Snackbar from "../../../components/Snackbar";
 import firebase from "firebase";
 import { mapGetters, mapActions } from "vuex";
 

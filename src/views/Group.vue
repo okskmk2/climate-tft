@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>연합단체들</h1>
-    <div class="top-btn-group">
+    <div class="top-ctrl-group">
       <SearchInput></SearchInput>
       <button @click="openGroupForm" v-if="$store.state.currentUser">등록하기</button>
     </div>
@@ -21,7 +21,7 @@
             </tr>
           </table>
           <div class="footer-btn-group">
-            <router-link :to="'/Group/' + group.id"
+            <router-link class="a-btn" :to="'/Group/' + group.id"
               ><button>입장하기</button></router-link
             >
           </div>

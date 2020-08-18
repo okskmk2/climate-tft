@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>자료실</h1>
-    <div class="top-btn-group">
+    <div class="top-ctrl-group">
       <SearchInput></SearchInput>
     </div>
   </div>
