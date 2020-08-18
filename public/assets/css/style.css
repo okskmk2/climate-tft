@@ -167,26 +167,18 @@ button {
 }
 
 .card-container {
-  margin: 0;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
 }
 
 .card-container > li {
+  margin: 10px;
   box-sizing: border-box;
-  display: inline-block;
   vertical-align: top;
   list-style-type: none;
-  width: 386px;
-  margin-right: 45px;
-  margin-bottom: 45px;
-}
-
-.container .card-container > li:nth-child(3n) {
-  margin-right: 0;
-}
-
-.full-container .card-container > li:nth-child(4n) {
-  margin-right: 0;
+  width: 376px;
 }
 
 .card-container > li .title {
