@@ -75,7 +75,7 @@ export default {
       firebase
         .firestore()
         .doc(
-          `group/${this.$route.params.groupId}/issue/${this.$route.params.issueId}`
+          `department/${this.$route.params.departmentId}/issue/${this.$route.params.issueId}`
         )
         .get()
         .then((doc) => {
@@ -86,7 +86,7 @@ export default {
       firebase
         .firestore()
         .doc(
-          `group/${this.$route.params.groupId}/issue/${this.$route.params.issueId}`
+          `department/${this.$route.params.departmentId}/issue/${this.$route.params.issueId}`
         )
         .set({
           ...this.issue,
@@ -116,7 +116,7 @@ export default {
       firebase
         .firestore()
         .doc(
-          `group/${this.$route.params.groupId}/issue/${this.$route.params.issueId}`
+          `department/${this.$route.params.departmentId}/issue/${this.$route.params.issueId}`
         )
         .delete()
         .then(() => {

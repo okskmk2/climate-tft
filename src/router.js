@@ -2,7 +2,6 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Settings from "./views/Settings.vue";
-import Department from "./views/Department.vue";
 import Corporation from "./views/Corporation.vue";
 import QnA from "./views/QnA.vue";
 import Archive from "./views/Archive.vue";
@@ -16,7 +15,23 @@ import News from "./views/News.vue";
 import NewsDetail from "./views/NewsDetail.vue";
 import NewsForm from "./views/NewsForm.vue";
 
-import DepartmentSpace from "./views/DepartmentSpace.vue";
+// Department
+import Department from "./views/Department.vue";
+import DepartmentSpace from "./views/Department/DepartmentSpace.vue";
+import DepartmentSettingsTab from "./views/Department/Settings/Tab.vue";
+import DepartmentSettingsHome from "./views/Department/Settings/Home.vue";
+import DepartmentSettingsMember from "./views/Department/Settings/Member.vue";
+
+import DepartmentDocTab from "./views/Department/DocTab.vue";
+import DepartmentNotice from "./views/Department/Doc/Notice.vue";
+import DepartmentEvent from "./views/Department/Doc/Event.vue";
+import DepartmentArchive from "./views/Department/Doc/Archive.vue";
+import DepartmentLogs from "./views/Department/Doc/Logs.vue";
+
+import DepartmentIssueTab from "./views/Department/IssueTab.vue";
+import DepartmentIssueBoard from "./views/Department/Issue/IssueBoard.vue";
+import DepartmentIssueDetail from "./views/Department/Issue/IssueDetail.vue";
+import DepartmentIssueForm from "./views/Department/Issue/IssueForm.vue";
 
 // Group
 import Group from "./views/Group.vue";
@@ -46,17 +61,10 @@ export default new Router({
       path: "/",
       component: Home,
     },
-    {
-      path: "/Department",
-      component: Department,
-    },
+
     {
       path: "/Settings",
       component: Settings,
-    },
-    {
-      path: "/Group",
-      component: Group,
     },
     {
       path: "/Corporation",
@@ -99,8 +107,8 @@ export default new Router({
       component: QnAForm,
     },
     {
-      path: "/DepartmentSpace",
-      component: DepartmentSpace,
+      path: "/Group",
+      component: Group,
     },
     {
       path: "/Group/:groupId",
@@ -173,6 +181,86 @@ export default new Router({
             {
               path: "Member",
               component: GroupSettingsMember,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      path: "/Department",
+      component: Department,
+    },
+    {
+      path: "/Department/:departmentId",
+      component: DepartmentSpace,
+      children: [
+        {
+          path: "",
+          redirect: "/Department/:departmentId/Doc",
+        },
+        {
+          path: "Doc",
+          component: DepartmentDocTab,
+          children: [
+            {
+              path: "",
+              redirect: "/Department/:departmentId/Doc/Notice",
+            },
+            {
+              path: "Notice",
+              component: DepartmentNotice,
+            },
+            {
+              path: "Archive",
+              component: DepartmentArchive,
+            },
+            {
+              path: "Logs",
+              component: DepartmentLogs,
+            },
+            {
+              path: "Event",
+              component: DepartmentEvent,
+            },
+          ],
+        },
+        {
+          path: "Issue",
+          component: DepartmentIssueTab,
+          children: [
+            {
+              path: "",
+              redirect: "/Department/:departmentId/Issue/IssueBoard",
+            },
+            {
+              path: "IssueBoard",
+              component: DepartmentIssueBoard,
+            },
+            {
+              path: "IssueForm",
+              component: DepartmentIssueForm,
+            },
+            {
+              path: ":issueId",
+              component: DepartmentIssueDetail,
+            },
+          ],
+        },
+        {
+          path: "Settings",
+          component: DepartmentSettingsTab,
+          children: [
+            {
+              path: "",
+              redirect: "/Department/:departmentId/Settings/Home",
+            },
+            {
+              path: "Home",
+              component: DepartmentSettingsHome,
+            },
+            {
+              path: "Member",
+              component: DepartmentSettingsMember,
             },
           ],
         },

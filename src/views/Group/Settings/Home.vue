@@ -24,7 +24,7 @@
 <script>
 import Snackbar from "../../../components/Snackbar";
 import firebase from "firebase";
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   computed: {

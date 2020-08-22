@@ -14,11 +14,13 @@ export default new Vuex.Store({
     isSnackbarUp: false,
     snackbarText: "",
     group: null,
+    department: null,
     currentUser: null,
     containerType:'normal'
   },
   getters: {
     group: (state) => ({ ...state.group }),
+    department: (state) => ({ ...state.department }),
   },
   mutations: {
     setUser(state, user) {
@@ -26,6 +28,9 @@ export default new Vuex.Store({
     },
     setGroup(state, group) {
       state.group = group;
+    },
+    setDepartment(state, department) {
+      state.department = department;
     },
     toggleReloadIssueBoard(state) {
       state.reloadIssueBoard = !state.reloadIssueBoard;
@@ -140,6 +145,42 @@ export default new Vuex.Store({
           context.dispatch("snackbar", "삭제되었습니다.").then(
             setTimeout(() => {
               router.push({ path: "/Group" });
+            }, 3000)
+          );
+        });
+    },
+    // department
+    getDepartmentById(context, id) {
+      firebase
+        .firestore()
+        .collection("department")
+        .doc(id)
+        .get()
+        .then((doc) => {
+          context.commit("setDepartment", { id: doc.id, ...doc.data() });
+        });
+    },
+    updateDepartment(context, data) {
+      firebase
+        .firestore()
+        .collection("department")
+        .doc(context.state.department.id)
+        .set(data)
+        .then(() => {
+          context.dispatch("snackbar", "저장되었습니다.");
+          context.dispatch("getDepartmentById", context.state.department.id);
+        });
+    },
+    deleteDepartment(context, id) {
+      firebase
+        .firestore()
+        .collection("department")
+        .doc(id)
+        .delete()
+        .then(() => {
+          context.dispatch("snackbar", "삭제되었습니다.").then(
+            setTimeout(() => {
+              router.push({ path: "/Department" });
             }, 3000)
           );
         });

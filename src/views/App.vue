@@ -11,7 +11,7 @@
         <div class="menu">
           <gnb></gnb>
           <div class="unb">
-            <router-link to="/Sponsor"><span>후원하기</span></router-link>
+            <!-- <router-link to="/Sponsor"><span>후원하기</span></router-link> -->
             <router-link to="/SignUpForm" v-if="!$store.state.currentUser"
               ><span>회원가입</span></router-link
             ><router-link to="/LoginForm" v-if="!$store.state.currentUser"
@@ -36,6 +36,7 @@
     <router-view class="main" :class="containerType" />
     <footer>
       <div class="footer-inner" :class="containerType">
+        <router-link to="/Sponsor"><span>후원하기</span></router-link>
         <i class="fa fa-lg fa-facebook-official fa-fw" aria-hidden="true"></i>
         <i class="fa fa-lg fa-instagram fa-fw" aria-hidden="true"></i>
       </div>
