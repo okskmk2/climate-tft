@@ -22,11 +22,11 @@
               style="cursor: pointer;"
               ><span>로그아웃</span></a
             >
-            <a
+            <!-- <a
               v-if="$store.state.currentUser"
               style="cursor: pointer;"
               ><span>나의 공간</span></a
-            >
+            > -->
             <router-link to="/Settings"><span>설정</span></router-link>
             <i18nChanger></i18nChanger>
           </div>
@@ -37,8 +37,8 @@
     <footer>
       <div class="footer-inner" :class="containerType">
         <router-link to="/Sponsor"><span>후원하기</span></router-link>
-        <i class="fa fa-lg fa-facebook-official fa-fw" aria-hidden="true"></i>
-        <i class="fa fa-lg fa-instagram fa-fw" aria-hidden="true"></i>
+        <!-- <i class="fa fa-lg fa-facebook-official fa-fw" aria-hidden="true"></i>
+        <i class="fa fa-lg fa-instagram fa-fw" aria-hidden="true"></i> -->
       </div>
     </footer>
   </div>

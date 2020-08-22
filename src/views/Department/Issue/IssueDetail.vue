@@ -47,7 +47,7 @@
       </div>
       <div class="meta-field">
         <label style="margin-bottom: 4px;">기한</label>
-        <input type="date" v-model="issue.dueDate" @change="updateIssue" style="padding: 2px 6px;" />
+        <input type="date" v-model="issue.dueDate" style="padding: 2px 6px;" />
       </div>
     </section>
 
