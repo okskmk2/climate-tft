@@ -8,6 +8,19 @@
       >
     </div>
     <ul class="qna-container">
+      <li v-for="qna in qnaList">
+        <div>
+          <div class="title">
+            <router-link to="/QnADetail">{{ qna.title }}</router-link>
+          </div>
+          <div class="peek">{{ qna.content }}</div>
+          <div class="tags">#심리학</div>
+        </div>
+        <span class="meta">
+          <span>{{ qna.regDate }}</span>
+          <span class="author">{{ qna.author }}</span>
+        </span>
+      </li>
       <li>
         <div>
           <div class="title">
@@ -60,10 +73,34 @@
 </template>
 
 <script>
+import firebase from "firebase";
 import SearchInput from "../components/search-input";
 export default {
+  data() {
+    return {
+      qnaList: [],
+    };
+  },
   components: {
     SearchInput,
+  },
+  mounted() {
+    this.getQnAList();
+  },
+  methods: {
+    getQnAList() {
+      firebase
+        .firestore()
+        .collection("qna")
+        .get()
+        .then((querySnapshot) => {
+          let qnaList = [];
+          querySnapshot.forEach((doc) =>
+            qnaList.push({ id: doc.id, ...doc.data() })
+          );
+          this.qnaList = qnaList;
+        });
+    },
   },
 };
 </script>

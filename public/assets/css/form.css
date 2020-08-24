@@ -31,6 +31,7 @@ a.fas {
   margin-right: 6px;
 }
 
+.editor,
 input:focus,
 textarea:focus {
   outline-color: var(--blue);
@@ -39,6 +40,11 @@ textarea:focus {
 textarea {
   resize: vertical;
   font-family: inherit;
+}
+
+.editor.content{
+  min-height: 12rem;
+  line-height: 1.5;
 }
 
 textarea.content {
@@ -55,6 +61,7 @@ textarea.content {
   margin-bottom: 10px;
 }
 
+.editor,
 .field input[type="text"],
 .field input[type="email"],
 .field input[type="password"],

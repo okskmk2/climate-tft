@@ -10,6 +10,8 @@ export default new Vuex.Store({
     isTurnOff: false,
     modalInnerComponent: null,
     reloadIssueBoard: false,
+    reloadGroup: false,
+    reloadDepartment: false,
     snackbarText: "",
     isSnackbarUp: false,
     snackbarText: "",
@@ -34,6 +36,12 @@ export default new Vuex.Store({
     },
     toggleReloadIssueBoard(state) {
       state.reloadIssueBoard = !state.reloadIssueBoard;
+    },
+    toggleReloadGroup(state) {
+      state.reloadGroup = !state.reloadGroup;
+    },
+    toggleReloadDepartment(state) {
+      state.reloadDepartment = !state.reloadDepartment;
     },
     turnOff(state) {
       state.isTurnOff = true;

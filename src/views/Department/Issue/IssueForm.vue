@@ -11,7 +11,7 @@
       </div>
       <div class="field">
         <label>내용</label>
-        <textarea v-model="issue.description" required></textarea>
+        <Editor v-model="issue.description" required class="content"></Editor>
       </div>
       <div class="field">
         <label>책임자</label>
@@ -31,8 +31,14 @@
 <script>
 import firebase from "firebase";
 import { now } from "../../../utils";
+import Editor from '../../../components/Editor'
 
 export default {
+
+  components:{
+    Editor
+  },
+
   data() {
     return {
       issue: {

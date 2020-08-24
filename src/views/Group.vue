@@ -7,8 +7,8 @@
     </div>
     <ul class="card-container">
       <li v-for="group in groupList">
+        <div class="title">{{ group.name }}</div>
         <div class="card">
-          <div class="title">{{ group.name }}</div>
           <div class="desc">{{ group.description }}</div>
           <table>
             <tr>
@@ -45,6 +45,16 @@ export default {
   components: {
     SearchInput,
     GroupForm,
+  },
+  computed: {
+    reloadGroup() {
+      return this.$store.state.reloadGroup;
+    },
+  },
+  watch: {
+    reloadGroup() {
+      this.getGroup();
+    },
   },
   mounted() {
     this.getGroup();

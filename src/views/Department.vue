@@ -3,12 +3,14 @@
     <h1>부서들</h1>
     <div class="top-ctrl-group">
       <SearchInput></SearchInput>
-      <button @click="openDepartmentForm" v-if="$store.state.currentUser">등록하기</button>
+      <button @click="openDepartmentForm" v-if="$store.state.currentUser">
+        등록하기
+      </button>
     </div>
     <ul class="card-container">
       <li v-for="department in departmentList">
+        <div class="title">{{ department.name }}</div>
         <div class="card">
-          <div class="title">{{ department.name }}</div>
           <div class="desc">{{ department.description }}</div>
           <div>
             <div class="tags">#정책 #법률 #정치</div>
@@ -29,7 +31,7 @@
             </router-link>
           </div>
         </div>
-      </li>    
+      </li>
     </ul>
   </div>
 </template>
@@ -47,6 +49,16 @@ export default {
   components: {
     SearchInput,
     DepartmentForm,
+  },
+  computed: {
+    reloadDepartment() {
+      return this.$store.state.reloadDepartment;
+    },
+  },
+  watch: {
+    reloadDepartment() {
+      this.getDepartment();
+    },
   },
   mounted() {
     this.getDepartment();

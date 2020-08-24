@@ -49,7 +49,9 @@ export default {
           site: this.site,
         })
         .then(() => {
-          this.$router.push("/Group");
+          this.$store.commit('closeModal');
+          this.$store.commit("toggleReloadGroup");
+          // this.$router.push("/Group");
         });
     },
   },

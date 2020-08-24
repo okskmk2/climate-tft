@@ -48,7 +48,9 @@ export default {
           description: this.description,
         })
         .then(() => {
-          this.$router.push("/Department");
+          this.$store.commit('closeModal');
+          this.$store.commit("toggleReloadDepartment");
+          // this.$router.push("/Department");
         });
     },
   },

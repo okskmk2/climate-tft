@@ -1,6 +1,6 @@
 <template>
   <div style="position: relative;" class="issue-detail">
-    <div style="flex-grow:1">
+    <div style="flex-grow: 1;">
       <header class="header3">
         <h3>
           <input type="text" v-model="issue.name" />
@@ -17,7 +17,7 @@
       </div>
     </div>
     <section class="meta-container">
-      <div class="btn-group" style="margin-bottom:24px">
+      <div class="btn-group" style="margin-bottom: 24px;">
         <button @click="updateIssue" class="icon-btn">
           <span class="fas fa-save"></span>저장
         </button>
@@ -38,7 +38,9 @@
       <div class="meta-field">
         <label>담당자</label>
         <select v-model="issue.assignee">
-          <option v-for="user in users" :value="user.email">{{ user.name }}</option>
+          <option v-for="user in users" :value="user.email">{{
+            user.name
+          }}</option>
         </select>
       </div>
       <div class="meta-field" v-if="issue.reporter">
@@ -113,15 +115,21 @@ export default {
       this.$store.commit("turnOff");
     },
     deleteIssue() {
-      firebase
-        .firestore()
-        .doc(
-          `department/${this.$route.params.departmentId}/issue/${this.$route.params.issueId}`
-        )
-        .delete()
-        .then(() => {
-          this.$store.dispatch("snackbar", "삭제되었습니다.");
-        });
+      const rtn = confirm("정말로 삭제하시겠습니까?");
+      if (rtn) {
+        firebase
+          .firestore()
+          .doc(
+            `department/${this.$route.params.departmentId}/issue/${this.$route.params.issueId}`
+          )
+          .delete()
+          .then(() => {
+            // this.$store.dispatch("snackbar", "삭제되었습니다.");
+            this.$router.push(
+              `/Department/${this.$route.params.departmentId}/issue/IssueBoard`
+            );
+          });
+      }
     },
   },
   components: {
