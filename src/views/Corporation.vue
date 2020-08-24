@@ -3,158 +3,17 @@
     <h1>회사</h1>
     <div class="top-ctrl-group">
       <SearchInput></SearchInput>
-      <button>등록하기</button>
+      <router-link to="/CorpForm" v-if="$store.state.currentUser" class="a-btn"
+        ><button>등록하기</button></router-link
+      >
     </div>
     <ul class="card-container">
-      <li>
-        <div class="title">회사1</div>
+      <li v-for="corp in corpList">
+        <div class="title">{{ corp.name }}</div>
         <div class="card">
-          <div class="desc">의안을 제안하는 부서</div>
-          <table>
-            <tr>
-              <td>열린 이슈</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>진행 중인 이슈</td>
-              <td>3</td>
-            </tr>
-          </table>
+          <div class="desc">{{ corp.description }}</div>
           <div class="footer-btn-group">
-            <button>입장하기</button>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="title">소모임활성화부</div>
-        <div class="card">
-          <div class="desc">의안을 제안하는 부서</div>
-          <table>
-            <tr>
-              <td>열린 이슈</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>진행 중인 이슈</td>
-              <td>3</td>
-            </tr>
-          </table>
-          <div class="footer-btn-group">
-            <button>입장하기</button>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="title">쓰레기줄이기부</div>
-        <div class="card">
-          <div class="desc">의안을 제안하는 부서</div>
-          <table>
-            <tr>
-              <td>열린 이슈</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>진행 중인 이슈</td>
-              <td>3</td>
-            </tr>
-          </table>
-          <div class="footer-btn-group">
-            <button>입장하기</button>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="title">채식진흥부</div>
-        <div class="card">
-          <div class="desc">의안을 제안하는 부서</div>
-          <table>
-            <tr>
-              <td>열린 이슈</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>진행 중인 이슈</td>
-              <td>3</td>
-            </tr>
-          </table>
-          <div class="footer-btn-group">
-            <button>입장하기</button>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="title">문서정리부</div>
-        <div class="card">
-          <div class="desc">의안을 제안하는 부서</div>
-          <table>
-            <tr>
-              <td>열린 이슈</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>진행 중인 이슈</td>
-              <td>3</td>
-            </tr>
-          </table>
-          <div class="footer-btn-group">
-            <button>입장하기</button>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="title">자연환경복원부</div>
-        <div class="card">
-          <div class="desc">의안을 제안하는 부서</div>
-          <table>
-            <tr>
-              <td>열린 이슈</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>진행 중인 이슈</td>
-              <td>3</td>
-            </tr>
-          </table>
-          <div class="footer-btn-group">
-            <button>입장하기</button>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="title">에너지효율부</div>
-        <div class="card">
-          <div class="desc">의안을 제안하는 부서</div>
-          <table>
-            <tr>
-              <td>열린 이슈</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>진행 중인 이슈</td>
-              <td>3</td>
-            </tr>
-          </table>
-          <div class="footer-btn-group">
-            <button>입장하기</button>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="title">소프트웨어개발부</div>
-        <div class="card">
-          <div class="desc">의안을 제안하는 부서</div>
-          <table>
-            <tr>
-              <td>열린 이슈</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>진행 중인 이슈</td>
-              <td>3</td>
-            </tr>
-          </table>
-          <div class="footer-btn-group">
-            <button>입장하기</button>
+            <button>자세히 보기</button>
           </div>
         </div>
       </li>
@@ -163,10 +22,35 @@
 </template>
 
 <script>
+import firebase from "firebase";
+
 import SearchInput from "../components/search-input";
 export default {
+  data() {
+    return {
+      corpList: [],
+    };
+  },
   components: {
     SearchInput,
+  },
+  mounted() {
+    this.getCorpList();
+  },
+  methods: {
+    getCorpList() {
+      firebase
+        .firestore()
+        .collection("corp")
+        .get()
+        .then((querySnapshot) => {
+          let corpList = [];
+          querySnapshot.forEach((doc) =>
+            corpList.push({ id: doc.id, ...doc.data() })
+          );
+          this.corpList = corpList;
+        });
+    },
   },
 };
 </script>

@@ -10,6 +10,7 @@
         <div class="title">{{ group.name }}</div>
         <div class="card">
           <div class="desc">{{ group.description }}</div>
+          <div class="tags">#정책 #법률 #정치</div>
           <table>
             <tr>
               <td>열린 이슈</td>

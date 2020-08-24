@@ -2,8 +2,13 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Settings from "./views/Settings.vue";
+
 import Corporation from "./views/Corporation.vue";
+import CorpForm from "./views/CorpForm.vue";
+
 import QnA from "./views/QnA.vue";
+
+
 import Archive from "./views/Archive.vue";
 import Sponsor from "./views/Sponsor.vue";
 
@@ -69,6 +74,10 @@ export default new Router({
     {
       path: "/Corporation",
       component: Corporation,
+    },
+    {
+      path: "/CorpForm",
+      component: CorpForm,
     },
     {
       path: "/News",

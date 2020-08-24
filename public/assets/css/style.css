@@ -44,7 +44,7 @@ pre {
 }
 
 footer {
-  margin-top: 1rem;
+  margin-top: 4rem;
   border-top: 1px solid var(--borderColor);
   background-color: var(--light-gray);
 }
