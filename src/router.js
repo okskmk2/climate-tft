@@ -5,9 +5,10 @@ import Settings from "./views/Settings.vue";
 
 import Corporation from "./views/Corporation.vue";
 import CorpForm from "./views/CorpForm.vue";
+import CorpDetail from "./views/CorpDetail.vue";
 
 import QnA from "./views/QnA.vue";
-
+import QnADetail from "./views/QnADetail.vue";
 
 import Archive from "./views/Archive.vue";
 import Sponsor from "./views/Sponsor.vue";
@@ -56,8 +57,6 @@ import IssueBoard from "./views/Group/Issue/IssueBoard.vue";
 import IssueDetail from "./views/Group/Issue/IssueDetail.vue";
 import IssueForm from "./views/Group/Issue/IssueForm.vue";
 
-import QnADetail from "./views/QnADetail.vue";
-
 Vue.use(Router);
 
 export default new Router({
@@ -80,6 +79,10 @@ export default new Router({
       component: CorpForm,
     },
     {
+      path: "/Corporation/:corpId",
+      component: CorpDetail,
+    },
+    {
       path: "/News",
       component: News,
     },
@@ -94,6 +97,10 @@ export default new Router({
     {
       path: "/QnA",
       component: QnA,
+    },
+    {
+      path: "/QnA/:qnaId",
+      component: QnADetail,
     },
     {
       path: "/Archive",

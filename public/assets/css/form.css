@@ -42,7 +42,7 @@ textarea {
   font-family: inherit;
 }
 
-.editor.content{
+.editor.content {
   min-height: 12rem;
   line-height: 1.5;
 }
@@ -95,3 +95,8 @@ textarea.content {
 /* .field .input-error::after {
   content: "\00a0";
 } */
+
+button.fas {
+  border-width: 0;
+  padding: 6px;
+}

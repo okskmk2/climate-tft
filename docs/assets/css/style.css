@@ -364,7 +364,7 @@ button {
   border-radius: 6px;
 }
 
-.issue-detail{
+.issue-detail {
   display: flex;
 }
 
@@ -411,6 +411,28 @@ button {
   font-size: 0.9em;
 }
 
+.reply-container {
+  padding: 0;
+}
+
+.reply-container li {
+  list-style-type: none;
+  margin: 1rem 0;
+  border-top: 1px solid var(--borderColor);
+}
+
+.reply-container .btn-group {
+  text-align: right;
+  margin-top: 1rem;
+}
+
+.reply-content{
+  margin: 1rem 0;
+  line-height: 1.4;
+}
+
+/* modal */
+
 .modal-container {
   width: 35rem;
   margin: 60px auto;
@@ -437,7 +459,7 @@ button {
   background-color: #333;
   color: white;
   transition: all var(--animation) 700ms;
-  top:0;
+  top: 0;
   opacity: 0;
 }
 

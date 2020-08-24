@@ -23,7 +23,7 @@
 
 <i18n>
 ko:
-  departments: 부서들
+  departments: 중앙부서
   group: 연합단체들
   corporation: 회사
   news: 뉴스

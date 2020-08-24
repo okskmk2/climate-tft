@@ -11,7 +11,8 @@
         <textarea class="content" v-model="description"></textarea>
       </div>
       <div class="footer-btn-group">
-        <button>등록하기</button>
+        <button type="button">취소</button>
+        <button type="submit">등록하기</button>
       </div>
     </form>
   </div>

@@ -13,7 +13,8 @@
         <div class="card">
           <div class="desc">{{ corp.description }}</div>
           <div class="footer-btn-group">
-            <button>자세히 보기</button>
+            <router-link class="a-btn" :to="'/Corporation/' + corp.id"
+              ><button>자세히 보기</button></router-link>
           </div>
         </div>
       </li>

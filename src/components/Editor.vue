@@ -1,17 +1,26 @@
 <template>
-  <div contenteditable @input="onInput" class="editor">
-    {{ content }}
-  </div>
+  <div class="editor" ref="editable" contenteditable v-on="listeners" />
 </template>
 
 <script>
 export default {
-  data() {
-    return { content: "" };
+  props: {
+    value: {
+      type: String,
+      default: "",
+    },
+  },
+  computed: {
+    listeners() {
+      return { ...this.$listeners, input: this.onInput };
+    },
+  },
+  mounted() {
+    this.$refs.editable.innerText = this.value;
   },
   methods: {
     onInput(e) {
-      console.log(e.target.innerText);
+      this.$emit("input", e.target.innerText);
     },
   },
 };
