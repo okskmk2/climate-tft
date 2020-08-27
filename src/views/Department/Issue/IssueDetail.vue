@@ -9,10 +9,37 @@
       <div class="issue-detail-container">
         <section style="flex-grow: 1;">
           <div class="field">
-            <textarea class="content" v-model="issue.description"></textarea>
+            <textarea
+              class="content noborder"
+              v-model="issue.description"
+            ></textarea>
           </div>
-          <div>코멘트</div>
-          <div>코멘트 영역</div>
+          <ul class="reply-container">
+            <li v-for="reply in replyList">
+              <div class="reply-content">
+                {{ reply.content }}
+                {{ reply.author }}
+                {{ reply.regDate }}
+              </div>
+              <div class="btn-group">
+                <button
+                  @click="deleteReply(reply.id)"
+                  class="fas fa-trash"
+                ></button>
+              </div>
+            </li>
+            <li>
+              <Editor
+                v-if="isOpenReplyEditor"
+                v-model="replyContent"
+                class="reply-content"
+              ></Editor>
+              <div class="btn-group">
+                <button @click="resetReply">취소</button>
+                <button @click="replyBtn">답변하기</button>
+              </div>
+            </li>
+          </ul>
         </section>
       </div>
     </div>
@@ -59,13 +86,18 @@
 
 <script>
 import Snackbar from "../../../components/Snackbar";
+import Editor from "../../../components/Editor";
 import firebase from "firebase";
+import { nowDttm } from "../../../utils";
 
 export default {
   data() {
     return {
       issue: {},
       users: [],
+      replyList: [],
+      isOpenReplyEditor: false,
+      replyContent: "",
     };
   },
   mounted() {
@@ -131,9 +163,58 @@ export default {
           });
       }
     },
+    getReplyList() {
+      firebase
+        .firestore()
+        .collection(
+          `department/${this.$route.params.departmentId}/Issue/${this.$route.params.issueId}/reply`
+        )
+        .get()
+        .then((querySnapshot) => {
+          let replyList = [];
+          querySnapshot.forEach((doc) =>
+            replyList.push({ id: doc.id, ...doc.data() })
+          );
+          this.replyList = replyList;
+        });
+    },
+    replyBtn() {
+      if (this.replyContent !== "") {
+        firebase
+          .firestore()
+          .collection(`department/${this.$route.params.departmentId}/Issue/${this.$route.params.issueId}/reply`)
+          .doc()
+          .set({
+            content: this.replyContent,
+            author: this.$store.state.currentUser.email,
+            regDate: nowDttm(),
+          })
+          .then(() => {
+            this.replyContent = "";
+            this.getReplyList();
+          });
+      }
+      this.isOpenReplyEditor = !this.isOpenReplyEditor;
+    },
+    deleteReply(replyId) {
+      const rtn = confirm("정말로 삭제하시겠습니까?");
+      if (rtn) {
+        firebase
+          .firestore()
+          .doc(`department/${this.$route.params.departmentId}/Issue/${this.$route.params.issueId}/reply/${replyId}`)
+          .delete()
+          .then(() => {
+            this.getReplyList();
+          });
+      }
+    },
+    resetReply() {
+      this.replyContent = "";
+      this.isOpenReplyEditor = false;
+    },
   },
   components: {
-    Snackbar,
+    Snackbar,Editor
   },
 };
 </script>
