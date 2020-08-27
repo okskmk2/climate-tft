@@ -47,11 +47,6 @@ textarea {
   line-height: 1.5;
 }
 
-textarea.content {
-  min-height: 25rem;
-  line-height: 1.5;
-}
-
 .footer-btn-group {
   text-align: right;
   margin-top: 25px;
@@ -90,6 +85,15 @@ textarea.content {
   color: var(--red);
   font-size: 14px;
   margin-top: 3px;
+}
+
+.field textarea.content {
+  min-height: 25rem;
+  line-height: 1.5;
+}
+
+.field .noborder{
+  border-width: 0;
 }
 
 /* .field .input-error::after {
