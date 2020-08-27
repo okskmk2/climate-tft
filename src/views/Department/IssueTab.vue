@@ -3,13 +3,17 @@
     <div class="space-container">
       <aside>
         <router-link
-          :to="'/Department/' + $route.params.departmentId + '/Issue/IssueBoard'"
+          :to="
+            '/Department/' + $route.params.departmentId + '/Issue/IssueBoard'
+          "
           >이슈보드</router-link
         >
-        <router-link :to="'/Department/' + $route.params.departmentId + '/Issue/Logs'"
+        <router-link
+          :to="'/Department/' + $route.params.departmentId + '/Issue/Logs'"
           >나에게 할당된 이슈</router-link
         >
-        <router-link :to="'/Department/' + $route.params.departmentId + '/Issue/Archive'"
+        <router-link
+          :to="'/Department/' + $route.params.departmentId + '/Issue/Archive'"
           >제안 목록</router-link
         >
       </aside>

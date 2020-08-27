@@ -14,7 +14,8 @@
           <div class="desc">{{ corp.description }}</div>
           <div class="footer-btn-group">
             <router-link class="a-btn" :to="'/Corporation/' + corp.id"
-              ><button>자세히 보기</button></router-link>
+              ><button>자세히 보기</button></router-link
+            >
           </div>
         </div>
       </li>
@@ -29,11 +30,11 @@ import SearchInput from "../components/search-input";
 export default {
   data() {
     return {
-      corpList: [],
+      corpList: []
     };
   },
   components: {
-    SearchInput,
+    SearchInput
   },
   mounted() {
     this.getCorpList();
@@ -44,15 +45,15 @@ export default {
         .firestore()
         .collection("corp")
         .get()
-        .then((querySnapshot) => {
+        .then(querySnapshot => {
           let corpList = [];
-          querySnapshot.forEach((doc) =>
+          querySnapshot.forEach(doc =>
             corpList.push({ id: doc.id, ...doc.data() })
           );
           this.corpList = corpList;
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

@@ -24,7 +24,7 @@ import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters(["department"]),
+    ...mapGetters(["department"])
   },
   methods: {
     updateDepartment() {
@@ -32,10 +32,10 @@ export default {
     },
     deleteDepartment() {
       this.$store.dispatch("deleteDepartment", this.department.id);
-    },
+    }
   },
   components: {
-    Snackbar,
-  },
+    Snackbar
+  }
 };
 </script>

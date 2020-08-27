@@ -97,7 +97,7 @@ export default {
       users: [],
       replyList: [],
       isOpenReplyEditor: false,
-      replyContent: "",
+      replyContent: ""
     };
   },
   mounted() {
@@ -112,7 +112,7 @@ export default {
           `department/${this.$route.params.departmentId}/issue/${this.$route.params.issueId}`
         )
         .get()
-        .then((doc) => {
+        .then(doc => {
           this.issue = { id: doc.id, ...doc.data() };
         });
     },
@@ -123,7 +123,7 @@ export default {
           `department/${this.$route.params.departmentId}/issue/${this.$route.params.issueId}`
         )
         .set({
-          ...this.issue,
+          ...this.issue
         })
         .then(() => {
           this.$store.dispatch("snackbar", "저장되었습니다.");
@@ -134,9 +134,9 @@ export default {
         .firestore()
         .collection("users")
         .get()
-        .then((querySnapshot) => {
+        .then(querySnapshot => {
           let users = [];
-          querySnapshot.forEach((doc) =>
+          querySnapshot.forEach(doc =>
             users.push({ id: doc.id, ...doc.data() })
           );
           this.users = users;
@@ -170,9 +170,9 @@ export default {
           `department/${this.$route.params.departmentId}/Issue/${this.$route.params.issueId}/reply`
         )
         .get()
-        .then((querySnapshot) => {
+        .then(querySnapshot => {
           let replyList = [];
-          querySnapshot.forEach((doc) =>
+          querySnapshot.forEach(doc =>
             replyList.push({ id: doc.id, ...doc.data() })
           );
           this.replyList = replyList;
@@ -182,12 +182,14 @@ export default {
       if (this.replyContent !== "") {
         firebase
           .firestore()
-          .collection(`department/${this.$route.params.departmentId}/Issue/${this.$route.params.issueId}/reply`)
+          .collection(
+            `department/${this.$route.params.departmentId}/Issue/${this.$route.params.issueId}/reply`
+          )
           .doc()
           .set({
             content: this.replyContent,
             author: this.$store.state.currentUser.email,
-            regDate: nowDttm(),
+            regDate: nowDttm()
           })
           .then(() => {
             this.replyContent = "";
@@ -201,7 +203,9 @@ export default {
       if (rtn) {
         firebase
           .firestore()
-          .doc(`department/${this.$route.params.departmentId}/Issue/${this.$route.params.issueId}/reply/${replyId}`)
+          .doc(
+            `department/${this.$route.params.departmentId}/Issue/${this.$route.params.issueId}/reply/${replyId}`
+          )
           .delete()
           .then(() => {
             this.getReplyList();
@@ -211,11 +215,12 @@ export default {
     resetReply() {
       this.replyContent = "";
       this.isOpenReplyEditor = false;
-    },
+    }
   },
   components: {
-    Snackbar,Editor
-  },
+    Snackbar,
+    Editor
+  }
 };
 </script>
 

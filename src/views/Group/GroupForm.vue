@@ -35,7 +35,7 @@ export default {
     return {
       name: "",
       description: "",
-      site: "",
+      site: ""
     };
   },
   methods: {
@@ -46,15 +46,15 @@ export default {
         .set({
           name: this.name,
           description: this.description,
-          site: this.site,
+          site: this.site
         })
         .then(() => {
-          this.$store.commit('closeModal');
+          this.$store.commit("closeModal");
           this.$store.commit("toggleReloadGroup");
           // this.$router.push("/Group");
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

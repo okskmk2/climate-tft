@@ -65,7 +65,7 @@ export default {
   data() {
     return {
       issue: {},
-      users: [],
+      users: []
     };
   },
   mounted() {
@@ -80,7 +80,7 @@ export default {
           `group/${this.$route.params.groupId}/issue/${this.$route.params.issueId}`
         )
         .get()
-        .then((doc) => {
+        .then(doc => {
           this.issue = { id: doc.id, ...doc.data() };
         });
     },
@@ -91,7 +91,7 @@ export default {
           `group/${this.$route.params.groupId}/issue/${this.$route.params.issueId}`
         )
         .set({
-          ...this.issue,
+          ...this.issue
         })
         .then(() => {
           this.$store.dispatch("snackbar", "저장되었습니다.");
@@ -102,9 +102,9 @@ export default {
         .firestore()
         .collection("users")
         .get()
-        .then((querySnapshot) => {
+        .then(querySnapshot => {
           let users = [];
-          querySnapshot.forEach((doc) =>
+          querySnapshot.forEach(doc =>
             users.push({ id: doc.id, ...doc.data() })
           );
           this.users = users;
@@ -130,11 +130,11 @@ export default {
             );
           });
       }
-    },
+    }
   },
   components: {
-    Snackbar,
-  },
+    Snackbar
+  }
 };
 </script>
 

@@ -17,7 +17,7 @@
     </router-link>
     <router-link to="/Archive">
       <span>{{ $t("archives") }}</span>
-    </router-link>    
+    </router-link>
   </nav>
 </template>
 

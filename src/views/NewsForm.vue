@@ -42,7 +42,7 @@ export default {
       isLinkNews: true,
       title: "",
       linkUrl: "",
-      content: "",
+      content: ""
     };
   },
   methods: {
@@ -54,13 +54,13 @@ export default {
           isLinkNews: this.isLinkNews,
           title: this.title,
           linkUrl: this.linkUrl,
-          content: this.content,
+          content: this.content
         })
         .then(() => {
           this.$router.push("/News");
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

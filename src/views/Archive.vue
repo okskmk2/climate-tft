@@ -11,8 +11,8 @@
 import SearchInput from "../components/search-input";
 export default {
   components: {
-    SearchInput,
-  },
+    SearchInput
+  }
 };
 </script>
 

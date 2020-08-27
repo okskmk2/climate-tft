@@ -35,7 +35,7 @@ export default {
   data() {
     return {
       name: "",
-      description: "",
+      description: ""
     };
   },
   methods: {
@@ -45,15 +45,15 @@ export default {
         .doc()
         .set({
           name: this.name,
-          description: this.description,
+          description: this.description
         })
         .then(() => {
-          this.$store.commit('closeModal');
+          this.$store.commit("closeModal");
           this.$store.commit("toggleReloadDepartment");
           // this.$router.push("/Department");
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

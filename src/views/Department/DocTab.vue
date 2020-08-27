@@ -2,16 +2,20 @@
   <div>
     <div class="space-container">
       <aside>
-        <router-link :to="'/Department/' + $route.params.groupId + '/Doc/Notice'"
+        <router-link
+          :to="'/Department/' + $route.params.groupId + '/Doc/Notice'"
           >공지사항</router-link
         >
-        <router-link :to="'/Department/' + $route.params.departmentId + '/Doc/Event'"
+        <router-link
+          :to="'/Department/' + $route.params.departmentId + '/Doc/Event'"
           >일정</router-link
         >
-        <router-link :to="'/Department/' + $route.params.departmentId + '/Doc/Logs'"
+        <router-link
+          :to="'/Department/' + $route.params.departmentId + '/Doc/Logs'"
           >회의록</router-link
         >
-        <router-link :to="'/Department/' + $route.params.departmentId + '/Doc/Archive'"
+        <router-link
+          :to="'/Department/' + $route.params.departmentId + '/Doc/Archive'"
           >자료실</router-link
         >
       </aside>

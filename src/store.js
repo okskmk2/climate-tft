@@ -18,11 +18,11 @@ export default new Vuex.Store({
     group: null,
     department: null,
     currentUser: null,
-    containerType:'normal'
+    containerType: "normal"
   },
   getters: {
-    group: (state) => ({ ...state.group }),
-    department: (state) => ({ ...state.department }),
+    group: state => ({ ...state.group }),
+    department: state => ({ ...state.department })
   },
   mutations: {
     setUser(state, user) {
@@ -65,18 +65,18 @@ export default new Vuex.Store({
     },
     hideSnackbar(state) {
       state.isSnackbarUp = false;
-    },
+    }
   },
   actions: {
     signIn(context, inputData) {
       firebase
         .auth()
         .signInWithEmailAndPassword(inputData.email, inputData.password)
-        .then((userCredential) => {
+        .then(userCredential => {
           context.commit("setUser", userCredential.user.toJSON());
           router.push({ path: "/" });
         })
-        .catch((err) => {
+        .catch(err => {
           alert(err.message);
         });
     },
@@ -88,7 +88,7 @@ export default new Vuex.Store({
           context.commit("setUser", null);
           router.push({ path: "/" });
         })
-        .catch((err) => {
+        .catch(err => {
           alert(err.message);
         });
     },
@@ -96,21 +96,25 @@ export default new Vuex.Store({
       firebase
         .auth()
         .createUserWithEmailAndPassword(inputData.email, inputData.password)
-        .then((user) => {
+        .then(user => {
           console.log(user);
           context.dispatch("signIn", inputData);
           context.dispatch("setUser", {
             name: inputData.name,
             email: inputData.email,
-            uid: user.user.uid,
+            uid: user.user.uid
           });
         })
-        .catch((err) => {
+        .catch(err => {
           alert(err.message);
         });
     },
     setUser(context, inputData) {
-      firebase.firestore().collection("users").doc().set(inputData);
+      firebase
+        .firestore()
+        .collection("users")
+        .doc()
+        .set(inputData);
     },
     snackbar(context, text) {
       context.commit("setSnackbarText", text);
@@ -128,7 +132,7 @@ export default new Vuex.Store({
         .collection("group")
         .doc(id)
         .get()
-        .then((doc) => {
+        .then(doc => {
           context.commit("setGroup", { id: doc.id, ...doc.data() });
         });
     },
@@ -164,7 +168,7 @@ export default new Vuex.Store({
         .collection("department")
         .doc(id)
         .get()
-        .then((doc) => {
+        .then(doc => {
           context.commit("setDepartment", { id: doc.id, ...doc.data() });
         });
     },
@@ -192,6 +196,6 @@ export default new Vuex.Store({
             }, 3000)
           );
         });
-    },
-  },
+    }
+  }
 });

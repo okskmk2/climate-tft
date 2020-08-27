@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       name: "",
-      description: "",
+      description: ""
     };
   },
   methods: {
@@ -35,13 +35,13 @@ export default {
         .doc()
         .set({
           name: this.name,
-          description: this.description,
+          description: this.description
         })
         .then(() => {
           this.$router.push("/Corporation");
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

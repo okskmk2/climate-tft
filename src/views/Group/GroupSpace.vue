@@ -1,12 +1,12 @@
 <template>
   <div>
-    <header class='space-header'>
+    <header class="space-header">
       <h2 v-if="group">{{ group.name }}</h2>
       <div>
-        <router-link :to="`/Group/${$route.params.groupId}/Settings`"
-         class="fas fa-cog"
-          ></router-link
-        >
+        <router-link
+          :to="`/Group/${$route.params.groupId}/Settings`"
+          class="fas fa-cog"
+        ></router-link>
       </div>
     </header>
     <nav class="space-gnb">
@@ -32,7 +32,7 @@ export default {
   computed: mapState(["group"]),
   mounted() {
     this.$store.dispatch("getGroupById", this.$route.params.groupId);
-  },
+  }
 };
 </script>
 

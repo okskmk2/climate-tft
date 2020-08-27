@@ -63,68 +63,68 @@ export default new Router({
   routes: [
     {
       path: "/",
-      component: Home,
+      component: Home
     },
 
     {
       path: "/Settings",
-      component: Settings,
+      component: Settings
     },
     {
       path: "/Corporation",
-      component: Corporation,
+      component: Corporation
     },
     {
       path: "/CorpForm",
-      component: CorpForm,
+      component: CorpForm
     },
     {
       path: "/Corporation/:corpId",
-      component: CorpDetail,
+      component: CorpDetail
     },
     {
       path: "/News",
-      component: News,
+      component: News
     },
     {
       path: "/News/:newsId",
-      component: NewsDetail,
+      component: NewsDetail
     },
     {
       path: "/NewsForm",
-      component: NewsForm,
+      component: NewsForm
     },
     {
       path: "/QnA",
-      component: QnA,
+      component: QnA
     },
     {
       path: "/QnA/:qnaId",
-      component: QnADetail,
+      component: QnADetail
     },
     {
       path: "/Archive",
-      component: Archive,
+      component: Archive
     },
     {
       path: "/Sponsor",
-      component: Sponsor,
+      component: Sponsor
     },
     {
       path: "/SignUpForm",
-      component: SignUpForm,
+      component: SignUpForm
     },
     {
       path: "/LoginForm",
-      component: LoginForm,
+      component: LoginForm
     },
     {
       path: "/QnAForm",
-      component: QnAForm,
+      component: QnAForm
     },
     {
       path: "/Group",
-      component: Group,
+      component: Group
     },
     {
       path: "/Group/:groupId",
@@ -132,7 +132,7 @@ export default new Router({
       children: [
         {
           path: "",
-          redirect: "/Group/:groupId/Doc",
+          redirect: "/Group/:groupId/Doc"
         },
         {
           path: "Doc",
@@ -140,25 +140,25 @@ export default new Router({
           children: [
             {
               path: "",
-              redirect: "/Group/:groupId/Doc/Notice",
+              redirect: "/Group/:groupId/Doc/Notice"
             },
             {
               path: "Notice",
-              component: Notice,
+              component: Notice
             },
             {
               path: "Archive",
-              component: GroupArchive,
+              component: GroupArchive
             },
             {
               path: "Logs",
-              component: Logs,
+              component: Logs
             },
             {
               path: "Event",
-              component: Event,
-            },
-          ],
+              component: Event
+            }
+          ]
         },
         {
           path: "Issue",
@@ -166,21 +166,21 @@ export default new Router({
           children: [
             {
               path: "",
-              redirect: "/Group/:groupId/Issue/IssueBoard",
+              redirect: "/Group/:groupId/Issue/IssueBoard"
             },
             {
               path: "IssueBoard",
-              component: IssueBoard,
+              component: IssueBoard
             },
             {
               path: "IssueForm",
-              component: IssueForm,
+              component: IssueForm
             },
             {
               path: ":issueId",
-              component: IssueDetail,
-            },
-          ],
+              component: IssueDetail
+            }
+          ]
         },
         {
           path: "Settings",
@@ -188,23 +188,23 @@ export default new Router({
           children: [
             {
               path: "",
-              redirect: "/Group/:groupId/Settings/Home",
+              redirect: "/Group/:groupId/Settings/Home"
             },
             {
               path: "Home",
-              component: GroupSettingsHome,
+              component: GroupSettingsHome
             },
             {
               path: "Member",
-              component: GroupSettingsMember,
-            },
-          ],
-        },
-      ],
+              component: GroupSettingsMember
+            }
+          ]
+        }
+      ]
     },
     {
       path: "/Department",
-      component: Department,
+      component: Department
     },
     {
       path: "/Department/:departmentId",
@@ -212,7 +212,7 @@ export default new Router({
       children: [
         {
           path: "",
-          redirect: "/Department/:departmentId/Doc",
+          redirect: "/Department/:departmentId/Doc"
         },
         {
           path: "Doc",
@@ -220,25 +220,25 @@ export default new Router({
           children: [
             {
               path: "",
-              redirect: "/Department/:departmentId/Doc/Notice",
+              redirect: "/Department/:departmentId/Doc/Notice"
             },
             {
               path: "Notice",
-              component: DepartmentNotice,
+              component: DepartmentNotice
             },
             {
               path: "Archive",
-              component: DepartmentArchive,
+              component: DepartmentArchive
             },
             {
               path: "Logs",
-              component: DepartmentLogs,
+              component: DepartmentLogs
             },
             {
               path: "Event",
-              component: DepartmentEvent,
-            },
-          ],
+              component: DepartmentEvent
+            }
+          ]
         },
         {
           path: "Issue",
@@ -246,21 +246,21 @@ export default new Router({
           children: [
             {
               path: "",
-              redirect: "/Department/:departmentId/Issue/IssueBoard",
+              redirect: "/Department/:departmentId/Issue/IssueBoard"
             },
             {
               path: "IssueBoard",
-              component: DepartmentIssueBoard,
+              component: DepartmentIssueBoard
             },
             {
               path: "IssueForm",
-              component: DepartmentIssueForm,
+              component: DepartmentIssueForm
             },
             {
               path: ":issueId",
-              component: DepartmentIssueDetail,
-            },
-          ],
+              component: DepartmentIssueDetail
+            }
+          ]
         },
         {
           path: "Settings",
@@ -268,23 +268,23 @@ export default new Router({
           children: [
             {
               path: "",
-              redirect: "/Department/:departmentId/Settings/Home",
+              redirect: "/Department/:departmentId/Settings/Home"
             },
             {
               path: "Home",
-              component: DepartmentSettingsHome,
+              component: DepartmentSettingsHome
             },
             {
               path: "Member",
-              component: DepartmentSettingsMember,
-            },
-          ],
-        },
-      ],
+              component: DepartmentSettingsMember
+            }
+          ]
+        }
+      ]
     },
     {
       path: "/QnADetail",
-      component: QnADetail,
-    },
-  ],
+      component: QnADetail
+    }
+  ]
 });

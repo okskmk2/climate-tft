@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class='header3'>
+    <header class="header3">
       <h3>이슈보드</h3>
       <div v-if="$store.state.currentUser">
         <button @click="openIssueForm()" class="icon-btn">
@@ -14,7 +14,12 @@
         <ul class="issue-ul">
           <li v-for="issue in todos" class="issue-card">
             <router-link
-              :to="'/Department/' + $route.params.departmentId + '/Issue/' + issue.id"
+              :to="
+                '/Department/' +
+                  $route.params.departmentId +
+                  '/Issue/' +
+                  issue.id
+              "
               >{{ issue.name || "제목없음" }}</router-link
             ><span>{{ issue.assignee }}</span>
           </li>
@@ -25,7 +30,12 @@
         <ul class="issue-ul">
           <li v-for="issue in inprogresses" class="issue-card">
             <router-link
-              :to="'/Department/' + $route.params.departmentId + '/Issue/' + issue.id"
+              :to="
+                '/Department/' +
+                  $route.params.departmentId +
+                  '/Issue/' +
+                  issue.id
+              "
               >{{ issue.name || "제목없음" }}</router-link
             ><span>{{ issue.assignee }}</span>
           </li>
@@ -36,7 +46,12 @@
         <ul class="issue-ul">
           <li v-for="issue in reviews" class="issue-card">
             <router-link
-              :to="'/Department/' + $route.params.departmentId + '/Issue/' + issue.id"
+              :to="
+                '/Department/' +
+                  $route.params.departmentId +
+                  '/Issue/' +
+                  issue.id
+              "
               >{{ issue.name || "제목없음" }}</router-link
             ><span>{{ issue.assignee }}</span>
           </li>
@@ -47,7 +62,12 @@
         <ul class="issue-ul">
           <li v-for="issue in dones" class="issue-card">
             <router-link
-              :to="'/Department/' + $route.params.departmentId + '/Issue/' + issue.id"
+              :to="
+                '/Department/' +
+                  $route.params.departmentId +
+                  '/Issue/' +
+                  issue.id
+              "
               >{{ issue.name || "제목없음" }}</router-link
             ><span>{{ issue.assignee }}</span>
           </li>
@@ -67,18 +87,18 @@ export default {
       todos: [],
       inprogresses: [],
       reviews: [],
-      dones: [],
+      dones: []
     };
   },
   computed: {
     reloadIssueBoard() {
       return this.$store.state.reloadIssueBoard;
-    },
+    }
   },
   watch: {
     reloadIssueBoard() {
       this.getIssues();
-    },
+    }
   },
   mounted() {
     this.getIssues();
@@ -90,21 +110,21 @@ export default {
         .collection(`department/${this.$route.params.departmentId}/issue`)
         .where("status", "in", ["todo", "inprogress", "review", "done"])
         .get()
-        .then((querySnapshot) => {
+        .then(querySnapshot => {
           let issues = [];
-          querySnapshot.forEach((doc) =>
+          querySnapshot.forEach(doc =>
             issues.push({ id: doc.id, ...doc.data() })
           );
-          this.todos = issues.filter((v) => v.status === "todo");
-          this.inprogresses = issues.filter((v) => v.status === "inprogress");
-          this.reviews = issues.filter((v) => v.status === "review");
-          this.dones = issues.filter((v) => v.status === "done");
+          this.todos = issues.filter(v => v.status === "todo");
+          this.inprogresses = issues.filter(v => v.status === "inprogress");
+          this.reviews = issues.filter(v => v.status === "review");
+          this.dones = issues.filter(v => v.status === "done");
         });
     },
     openIssueForm() {
       this.$store.commit("openModal", IssueForm);
-    },
-  },
+    }
+  }
 };
 </script>
 

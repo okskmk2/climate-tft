@@ -1,12 +1,12 @@
 <template>
   <div>
-    <header class='space-header'>
+    <header class="space-header">
       <h2 v-if="department">{{ department.name }}</h2>
       <div>
-        <router-link :to="`/Department/${$route.params.departmentId}/Settings`"
-         class="fas fa-cog"
-          ></router-link
-        >
+        <router-link
+          :to="`/Department/${$route.params.departmentId}/Settings`"
+          class="fas fa-cog"
+        ></router-link>
       </div>
     </header>
     <nav class="space-gnb">
@@ -32,7 +32,7 @@ export default {
   computed: mapState(["department"]),
   mounted() {
     this.$store.dispatch("getDepartmentById", this.$route.params.departmentId);
-  },
+  }
 };
 </script>
 
