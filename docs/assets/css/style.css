@@ -97,8 +97,8 @@ button {
 
 .header-inner {
   display: flex;
-  padding-top: 18px;
-  padding-bottom: 15px;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 .header3 {
@@ -120,9 +120,16 @@ button {
   padding-bottom: 20px;
 }
 
+.brand-text {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .brand-text a {
   text-decoration: none;
-  font-size: 24px;
+  font-size: 19px;
+  font-weight: bold;
   color: inherit;
 }
 
@@ -284,7 +291,7 @@ button {
 .space-container > aside {
   padding-top: 2rem;
   min-width: 10rem;
-  margin-right: 1rem;
+  margin-right: 2rem;
   /* border-right: 1px solid var(--borderColor); */
 }
 
@@ -426,7 +433,7 @@ button {
   margin-top: 1rem;
 }
 
-.reply-content{
+.reply-content {
   margin: 1rem 0;
   line-height: 1.4;
 }

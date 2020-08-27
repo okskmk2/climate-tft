@@ -47,6 +47,8 @@
 <i18n>
 ko:
   brand: 기후위기TFT
+en:
+  brand: Climate Crisis TFT
 </i18n>
 
 <script>
