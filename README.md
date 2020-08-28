@@ -10,6 +10,11 @@ npm install
 
 npm run start - 서버 실행
 
+# Recommend VScode Extensioin 추천 VScode 확장 프로그램
+
+1. Eslint,Prettier - Code formatter, stylelint, Vetur, vuetify-vscode
+2. Auto Close Tag, Auto Import, Auto Rename Tag, Bracket Pair Colozier, Git History, GitLens, Highlight Matching Tag, Path Intellisense, Rainbow Brackets
+
 # Git Branch Workflows 깃 브랜치
 
 ![](2020-08-27-22-56-21.png)
