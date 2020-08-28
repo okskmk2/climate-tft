@@ -15,7 +15,7 @@
             ></textarea>
           </div>
           <ul class="reply-container">
-            <li v-for="reply in replyList">
+            <li v-for="reply in replyList" :key="reply.id">
               <div class="reply-content">
                 {{ reply.content }}
                 {{ reply.author }}
@@ -65,7 +65,7 @@
       <div class="meta-field">
         <label>담당자</label>
         <select v-model="issue.assignee">
-          <option v-for="user in users" :value="user.email">{{
+          <option v-for="user in users" :value="user.email" :key="user.id">{{
             user.name
           }}</option>
         </select>
@@ -141,10 +141,6 @@ export default {
           );
           this.users = users;
         });
-    },
-    openIssueForm() {
-      this.$store.commit("setModalInnerComponent", IssueForm);
-      this.$store.commit("turnOff");
     },
     deleteIssue() {
       const rtn = confirm("정말로 삭제하시겠습니까?");

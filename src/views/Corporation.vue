@@ -8,7 +8,7 @@
       >
     </div>
     <ul class="card-container">
-      <li v-for="corp in corpList" :key='corp.id'>
+      <li v-for="corp in corpList" :key="corp.id">
         <div class="title">{{ corp.name }}</div>
         <div class="card">
           <div class="desc">{{ corp.description }}</div>
