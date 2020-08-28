@@ -1,6 +1,12 @@
+<i18n>
+ko:
+  group: 연합단체들
+en:
+  group: Group
+</i18n>
 <template>
   <div>
-    <h1>연합단체들</h1>
+    <h1>{{ $t("group") }}</h1>
     <div class="top-ctrl-group">
       <SearchInput></SearchInput>
       <button @click="openGroupForm" v-if="$store.state.currentUser">

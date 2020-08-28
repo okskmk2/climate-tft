@@ -448,6 +448,10 @@ button {
   padding: 30px 44px 39px;
 }
 
+.modal-container h3 {
+  margin-bottom: 36px;
+}
+
 /* etc */
 
 .less-important {

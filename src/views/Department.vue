@@ -1,6 +1,12 @@
+<i18n>
+ko:
+  department: 중앙부서
+en:
+  department: Department
+</i18n>
 <template>
   <div>
-    <h1>부서들</h1>
+    <h1>{{ $t("department") }}</h1>
     <div class="top-ctrl-group">
       <SearchInput></SearchInput>
       <button @click="openDepartmentForm" v-if="$store.state.currentUser">
