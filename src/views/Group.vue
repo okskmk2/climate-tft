@@ -8,7 +8,7 @@
       </button>
     </div>
     <ul class="card-container">
-      <li v-for="group in groupList">
+      <li v-for="group in groupList" v-bind:key="group.id">
         <div class="title">{{ group.name }}</div>
         <div class="card">
           <div class="desc">{{ group.description }}</div>

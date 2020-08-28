@@ -8,7 +8,7 @@
       >
     </div>
     <ul class="qna-container">
-      <li v-for="qna in qnaList">
+      <li v-for="qna in qnaList" v-bind:key="qna.id">
         <div>
           <div class="title">
             <router-link :to="'/QnA/' + qna.id">{{ qna.title }}</router-link>

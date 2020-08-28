@@ -15,7 +15,7 @@
             ></textarea>
           </div>
           <ul class="reply-container">
-            <li v-for="reply in replyList">
+            <li v-for="reply in replyList" v-bind:key="reply.id">
               <div class="reply-content">
                 {{ reply.content }}
                 {{ reply.author }}
@@ -65,9 +65,12 @@
       <div class="meta-field">
         <label>담당자</label>
         <select v-model="issue.assignee">
-          <option v-for="user in users" :value="user.email">{{
-            user.name
-          }}</option>
+          <option
+            v-for="user in users"
+            :value="user.email"
+            v-bind:key="user.id"
+            >{{ user.name }}</option
+          >
         </select>
       </div>
       <div class="meta-field" v-if="issue.reporter">

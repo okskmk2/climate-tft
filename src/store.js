@@ -14,15 +14,18 @@ export default new Vuex.Store({
     reloadDepartment: false,
     snackbarText: "",
     isSnackbarUp: false,
-    snackbarText: "",
     group: null,
     department: null,
     currentUser: null,
     containerType: "normal"
   },
   getters: {
-    group: state => ({ ...state.group }),
-    department: state => ({ ...state.department })
+    group: state => ({
+      ...state.group
+    }),
+    department: state => ({
+      ...state.department
+    })
   },
   mutations: {
     setUser(state, user) {
@@ -74,7 +77,9 @@ export default new Vuex.Store({
         .signInWithEmailAndPassword(inputData.email, inputData.password)
         .then(userCredential => {
           context.commit("setUser", userCredential.user.toJSON());
-          router.push({ path: "/" });
+          router.push({
+            path: "/"
+          });
         })
         .catch(err => {
           alert(err.message);
@@ -86,7 +91,9 @@ export default new Vuex.Store({
         .signOut()
         .then(() => {
           context.commit("setUser", null);
-          router.push({ path: "/" });
+          router.push({
+            path: "/"
+          });
         })
         .catch(err => {
           alert(err.message);
@@ -133,7 +140,10 @@ export default new Vuex.Store({
         .doc(id)
         .get()
         .then(doc => {
-          context.commit("setGroup", { id: doc.id, ...doc.data() });
+          context.commit("setGroup", {
+            id: doc.id,
+            ...doc.data()
+          });
         });
     },
     updateGroup(context, data) {
@@ -156,7 +166,9 @@ export default new Vuex.Store({
         .then(() => {
           context.dispatch("snackbar", "삭제되었습니다.").then(
             setTimeout(() => {
-              router.push({ path: "/Group" });
+              router.push({
+                path: "/Group"
+              });
             }, 3000)
           );
         });
@@ -169,7 +181,10 @@ export default new Vuex.Store({
         .doc(id)
         .get()
         .then(doc => {
-          context.commit("setDepartment", { id: doc.id, ...doc.data() });
+          context.commit("setDepartment", {
+            id: doc.id,
+            ...doc.data()
+          });
         });
     },
     updateDepartment(context, data) {
@@ -192,7 +207,9 @@ export default new Vuex.Store({
         .then(() => {
           context.dispatch("snackbar", "삭제되었습니다.").then(
             setTimeout(() => {
-              router.push({ path: "/Department" });
+              router.push({
+                path: "/Department"
+              });
             }, 3000)
           );
         });

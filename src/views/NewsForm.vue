@@ -26,7 +26,7 @@
         <textarea class="content" v-model="content"></textarea>
       </div>
       <div class="footer-btn-group">
-        <button v-if="">
+        <button>
           {{ isLinkNews ? "공유하기" : "글쓰기" }}
         </button>
       </div>

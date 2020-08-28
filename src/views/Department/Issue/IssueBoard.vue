@@ -12,7 +12,7 @@
       <section>
         <h4>할 일</h4>
         <ul class="issue-ul">
-          <li v-for="issue in todos" class="issue-card">
+          <li v-for="issue in todos" v-bind:key="issue.id" class="issue-card">
             <router-link
               :to="
                 '/Department/' +
@@ -28,7 +28,11 @@
       <section>
         <h4>진행 중</h4>
         <ul class="issue-ul">
-          <li v-for="issue in inprogresses" class="issue-card">
+          <li
+            v-for="issue in inprogresses"
+            v-bind:key="issue.id"
+            class="issue-card"
+          >
             <router-link
               :to="
                 '/Department/' +
@@ -44,7 +48,7 @@
       <section>
         <h4>리뷰</h4>
         <ul class="issue-ul">
-          <li v-for="issue in reviews" class="issue-card">
+          <li v-for="issue in reviews" v-bind:key="issue.id" class="issue-card">
             <router-link
               :to="
                 '/Department/' +
@@ -60,7 +64,7 @@
       <section>
         <h4>완료</h4>
         <ul class="issue-ul">
-          <li v-for="issue in dones" class="issue-card">
+          <li v-for="issue in dones" v-bind:key="issue.id" class="issue-card">
             <router-link
               :to="
                 '/Department/' +

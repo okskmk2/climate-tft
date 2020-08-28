@@ -8,7 +8,7 @@
       >
     </div>
     <ul class="card-container">
-      <li v-for="corp in corpList">
+      <li v-for="corp in corpList" v-bind:key="corp.id">
         <div class="title">{{ corp.name }}</div>
         <div class="card">
           <div class="desc">{{ corp.description }}</div>
