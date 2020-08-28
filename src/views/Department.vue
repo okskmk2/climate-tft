@@ -42,22 +42,22 @@ import DepartmentForm from "./Department/DepartmentForm";
 export default {
   data() {
     return {
-      departmentList: [],
+      departmentList: []
     };
   },
   components: {
     SearchInput,
-    DepartmentForm,
+    DepartmentForm
   },
   computed: {
     reloadDepartment() {
       return this.$store.state.reloadDepartment;
-    },
+    }
   },
   watch: {
     reloadDepartment() {
       this.getDepartment();
-    },
+    }
   },
   mounted() {
     this.getDepartment();
@@ -68,9 +68,9 @@ export default {
         .firestore()
         .collection("department")
         .get()
-        .then((querySnapshot) => {
+        .then(querySnapshot => {
           let departmentList = [];
-          querySnapshot.forEach((doc) =>
+          querySnapshot.forEach(doc =>
             departmentList.push({ id: doc.id, ...doc.data() })
           );
           this.departmentList = departmentList;
@@ -78,8 +78,8 @@ export default {
     },
     openDepartmentForm() {
       this.$store.commit("openModal", DepartmentForm);
-    },
-  },
+    }
+  }
 };
 </script>
 

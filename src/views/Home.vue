@@ -1,15 +1,11 @@
 <template>
   <div>
-      <p>행사소식, 최신자료, 최신뉴스</p>
+    <p>행사소식, 최신자료, 최신뉴스</p>
   </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
-<style>
-
-</style>
+<style></style>

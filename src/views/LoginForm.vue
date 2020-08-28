@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       email: "",
-      password: "",
+      password: ""
     };
   },
   mounted() {
@@ -41,10 +41,10 @@ export default {
     signIn() {
       this.$store.dispatch("signIn", {
         email: this.email,
-        password: this.password,
+        password: this.password
       });
-    },
-  },
+    }
+  }
 };
 </script>
 

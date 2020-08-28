@@ -25,7 +25,7 @@ export default {
         .firestore()
         .doc(`news/${this.$route.params.newsId}`)
         .get()
-        .then((doc) => {
+        .then(doc => {
           this.news = { id: doc.id, ...doc.data() };
         });
     },
@@ -41,8 +41,8 @@ export default {
             this.$router.push("/News");
           });
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

@@ -17,8 +17,8 @@ export default {
     return {
       corp: {
         name: "",
-        description: "",
-      },
+        description: ""
+      }
     };
   },
   mounted() {
@@ -30,7 +30,7 @@ export default {
         .firestore()
         .doc(`corp/${this.$route.params.corpId}`)
         .get()
-        .then((doc) => {
+        .then(doc => {
           this.corp = { id: doc.id, ...doc.data() };
         });
     },
@@ -45,8 +45,8 @@ export default {
             this.$router.push("/Corporation");
           });
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

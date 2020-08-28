@@ -28,7 +28,7 @@ import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters(["group"]),
+    ...mapGetters(["group"])
   },
   methods: {
     updateGroup() {
@@ -36,10 +36,10 @@ export default {
     },
     deleteGroup() {
       this.$store.dispatch("deleteGroup", this.group.id);
-    },
+    }
   },
   components: {
-    Snackbar,
-  },
+    Snackbar
+  }
 };
 </script>

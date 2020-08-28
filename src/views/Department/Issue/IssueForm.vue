@@ -31,11 +31,10 @@
 <script>
 import firebase from "firebase";
 import { now } from "../../../utils";
-import Editor from '../../../components/Editor'
+import Editor from "../../../components/Editor";
 
 export default {
-
-  components:{
+  components: {
     Editor
   },
 
@@ -45,8 +44,8 @@ export default {
         name: "",
         description: "",
         assignee: "",
-        dueDate: "",
-      },
+        dueDate: ""
+      }
     };
   },
 
@@ -64,15 +63,15 @@ export default {
           assignee: this.issue.assignee || this.$store.state.currentUser.email,
           dueDate: this.issue.dueDate || now(),
           status: "todo",
-          reporter: this.$store.state.currentUser.email,
+          reporter: this.$store.state.currentUser.email
         })
         .then(() => {
           this.$store.commit("closeModal");
           this.issue = {};
           this.$store.commit("toggleReloadIssueBoard");
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

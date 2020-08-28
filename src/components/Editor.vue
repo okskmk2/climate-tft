@@ -7,13 +7,13 @@ export default {
   props: {
     value: {
       type: String,
-      default: "",
-    },
+      default: ""
+    }
   },
   computed: {
     listeners() {
       return { ...this.$listeners, input: this.onInput };
-    },
+    }
   },
   mounted() {
     this.$refs.editable.innerText = this.value;
@@ -21,7 +21,7 @@ export default {
   methods: {
     onInput(e) {
       this.$emit("input", e.target.innerText);
-    },
-  },
+    }
+  }
 };
 </script>

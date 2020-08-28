@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class='header3'>
+    <header class="header3">
       <h3>이슈보드</h3>
       <div v-if="$store.state.currentUser">
         <button @click="openIssueForm()" class="icon-btn">
@@ -67,18 +67,18 @@ export default {
       todos: [],
       inprogresses: [],
       reviews: [],
-      dones: [],
+      dones: []
     };
   },
   computed: {
     reloadIssueBoard() {
       return this.$store.state.reloadIssueBoard;
-    },
+    }
   },
   watch: {
     reloadIssueBoard() {
       this.getIssues();
-    },
+    }
   },
   mounted() {
     this.getIssues();
@@ -90,21 +90,21 @@ export default {
         .collection(`group/${this.$route.params.groupId}/issue`)
         .where("status", "in", ["todo", "inprogress", "review", "done"])
         .get()
-        .then((querySnapshot) => {
+        .then(querySnapshot => {
           let issues = [];
-          querySnapshot.forEach((doc) =>
+          querySnapshot.forEach(doc =>
             issues.push({ id: doc.id, ...doc.data() })
           );
-          this.todos = issues.filter((v) => v.status === "todo");
-          this.inprogresses = issues.filter((v) => v.status === "inprogress");
-          this.reviews = issues.filter((v) => v.status === "review");
-          this.dones = issues.filter((v) => v.status === "done");
+          this.todos = issues.filter(v => v.status === "todo");
+          this.inprogresses = issues.filter(v => v.status === "inprogress");
+          this.reviews = issues.filter(v => v.status === "review");
+          this.dones = issues.filter(v => v.status === "done");
         });
     },
     openIssueForm() {
       this.$store.commit("openModal", IssueForm);
-    },
-  },
+    }
+  }
 };
 </script>
 

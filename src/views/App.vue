@@ -60,7 +60,7 @@ export default {
   name: "app",
   data() {
     return {
-      modalOpen: false,
+      modalOpen: false
     };
   },
   computed: {
@@ -73,13 +73,13 @@ export default {
         default:
           return "container";
       }
-    },
+    }
   },
   methods: {
     signOut() {
       this.$store.dispatch("signOut");
-    },
+    }
   },
-  components: { i18nChanger, gnb, Modal },
+  components: { i18nChanger, gnb, Modal }
 };
 </script>

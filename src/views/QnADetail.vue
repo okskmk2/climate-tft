@@ -40,14 +40,14 @@ import { nowDttm } from "../utils";
 
 export default {
   components: {
-    Editor,
+    Editor
   },
   data() {
     return {
       qna: {},
       isOpenReplyEditor: false,
       replyContent: "",
-      replyList: [],
+      replyList: []
     };
   },
   mounted() {
@@ -64,7 +64,7 @@ export default {
           .set({
             content: this.replyContent,
             author: this.$store.state.currentUser.email,
-            regDate: nowDttm(),
+            regDate: nowDttm()
           })
           .then(() => {
             this.replyContent = "";
@@ -94,7 +94,7 @@ export default {
         .firestore()
         .doc(`qna/${this.$route.params.qnaId}`)
         .get()
-        .then((doc) => {
+        .then(doc => {
           this.qna = { id: doc.id, ...doc.data() };
         });
     },
@@ -103,9 +103,9 @@ export default {
         .firestore()
         .collection(`qna/${this.$route.params.qnaId}/reply`)
         .get()
-        .then((querySnapshot) => {
+        .then(querySnapshot => {
           let replyList = [];
-          querySnapshot.forEach((doc) =>
+          querySnapshot.forEach(doc =>
             replyList.push({ id: doc.id, ...doc.data() })
           );
           this.replyList = replyList;
@@ -123,8 +123,8 @@ export default {
             this.$router.push("/QnA");
           });
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

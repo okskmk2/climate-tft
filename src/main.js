@@ -20,12 +20,12 @@ var firebaseConfig = {
   projectId: "beauntest2",
   storageBucket: "beauntest2.appspot.com",
   messagingSenderId: "529606047384",
-  appId: "1:529606047384:web:9f3f8627b23a7f9d1882ed",
+  appId: "1:529606047384:web:9f3f8627b23a7f9d1882ed"
 };
 
 firebase.initializeApp(firebaseConfig);
 
-firebase.auth().onAuthStateChanged((user) => {
+firebase.auth().onAuthStateChanged(user => {
   if (user) {
     store.commit("setUser", user.toJSON());
   }
@@ -38,5 +38,5 @@ new Vue({
   i18n,
   router,
   store,
-  render: (h) => h(App),
+  render: h => h(App)
 }).$mount("#app");

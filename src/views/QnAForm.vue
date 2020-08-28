@@ -27,9 +27,9 @@ export default {
   data() {
     return {
       qna: {
-        title:"",
-        content:""
-      },
+        title: "",
+        content: ""
+      }
     };
   },
   methods: {
@@ -42,15 +42,15 @@ export default {
           title: this.qna.title,
           content: this.qna.content,
           author: this.$store.state.currentUser.email,
-          regDate: now(),
+          regDate: now()
         })
         .then(() => {
           console.log(this.qna);
           this.qna = {};
           this.$router.push("/QnA");
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

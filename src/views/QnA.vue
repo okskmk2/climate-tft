@@ -20,7 +20,7 @@
           <span>{{ qna.regDate }}</span>
           <span class="author">{{ qna.author }}</span>
         </span>
-      </li>     
+      </li>
     </ul>
   </div>
 </template>
@@ -31,11 +31,11 @@ import SearchInput from "../components/search-input";
 export default {
   data() {
     return {
-      qnaList: [],
+      qnaList: []
     };
   },
   components: {
-    SearchInput,
+    SearchInput
   },
   mounted() {
     this.getQnAList();
@@ -46,15 +46,15 @@ export default {
         .firestore()
         .collection("qna")
         .get()
-        .then((querySnapshot) => {
+        .then(querySnapshot => {
           let qnaList = [];
-          querySnapshot.forEach((doc) =>
+          querySnapshot.forEach(doc =>
             qnaList.push({ id: doc.id, ...doc.data() })
           );
           this.qnaList = qnaList;
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

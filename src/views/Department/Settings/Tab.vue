@@ -2,7 +2,8 @@
   <div>
     <div class="space-container">
       <aside>
-        <router-link :to="'/Department/' + $route.params.departmentId + '/Settings/Home'"
+        <router-link
+          :to="'/Department/' + $route.params.departmentId + '/Settings/Home'"
           >공간정보</router-link
         >
         <router-link

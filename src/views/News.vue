@@ -36,7 +36,7 @@ import SearchInput from "../components/search-input";
 export default {
   data() {
     return {
-      newsList: [],
+      newsList: []
     };
   },
   mounted() {
@@ -48,18 +48,18 @@ export default {
         .firestore()
         .collection("news")
         .get()
-        .then((querySnapshot) => {
+        .then(querySnapshot => {
           let newsList = [];
-          querySnapshot.forEach((doc) =>
+          querySnapshot.forEach(doc =>
             newsList.push({ id: doc.id, ...doc.data() })
           );
           this.newsList = newsList;
         });
-    },
+    }
   },
   components: {
-    SearchInput,
-  },
+    SearchInput
+  }
 };
 </script>
 

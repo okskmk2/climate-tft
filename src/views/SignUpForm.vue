@@ -42,7 +42,7 @@ export default {
     return {
       name: "",
       email: "",
-      password: "",
+      password: ""
     };
   },
   methods: {
@@ -50,10 +50,10 @@ export default {
       this.$store.dispatch("signUp", {
         name: this.name,
         email: this.email,
-        password: this.password,
+        password: this.password
       });
-    },
-  },
+    }
+  }
 };
 </script>
 

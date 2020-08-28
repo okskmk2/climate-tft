@@ -3,7 +3,9 @@
     <h1>연합단체들</h1>
     <div class="top-ctrl-group">
       <SearchInput></SearchInput>
-      <button @click="openGroupForm" v-if="$store.state.currentUser">등록하기</button>
+      <button @click="openGroupForm" v-if="$store.state.currentUser">
+        등록하기
+      </button>
     </div>
     <ul class="card-container">
       <li v-for="group in groupList">
@@ -21,6 +23,7 @@
               <td>3</td>
             </tr>
           </table>
+
           <div class="footer-btn-group">
             <router-link class="a-btn" :to="'/Group/' + group.id"
               ><button>입장하기</button></router-link
@@ -40,22 +43,22 @@ import GroupForm from "./Group/GroupForm";
 export default {
   data() {
     return {
-      groupList: [],
+      groupList: []
     };
   },
   components: {
     SearchInput,
-    GroupForm,
+    GroupForm
   },
   computed: {
     reloadGroup() {
       return this.$store.state.reloadGroup;
-    },
+    }
   },
   watch: {
     reloadGroup() {
       this.getGroup();
-    },
+    }
   },
   mounted() {
     this.getGroup();
@@ -66,9 +69,9 @@ export default {
         .firestore()
         .collection("group")
         .get()
-        .then((querySnapshot) => {
+        .then(querySnapshot => {
           let groupList = [];
-          querySnapshot.forEach((doc) =>
+          querySnapshot.forEach(doc =>
             groupList.push({ id: doc.id, ...doc.data() })
           );
           this.groupList = groupList;
@@ -76,8 +79,8 @@ export default {
     },
     openGroupForm() {
       this.$store.commit("openModal", GroupForm);
-    },
-  },
+    }
+  }
 };
 </script>
 
