@@ -20,7 +20,7 @@ export const nowDttm = () => {
   var hh = pad(date.getHours(), 2);
   var mm = pad(date.getMinutes(), 2);
   var ss = pad(date.getSeconds(), 2);
-  return `${yyyy}-${MM}-${dd} ${mm}:${ss}`;
+  return `${yyyy}-${MM}-${dd} ${hh}:${mm}:${ss}`;
 };
 
 function pad(number, length) {

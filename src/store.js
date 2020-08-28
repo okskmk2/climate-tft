@@ -14,7 +14,6 @@ export default new Vuex.Store({
     reloadDepartment: false,
     snackbarText: "",
     isSnackbarUp: false,
-    snackbarText: "",
     group: null,
     department: null,
     currentUser: null,

@@ -8,7 +8,7 @@
       </button>
     </div>
     <ul class="reply-container">
-      <li v-for="reply in replyList">
+      <li v-for="reply in replyList" :key="reply.id">
         <div class="reply-content">
           {{ reply.content }}
           {{ reply.author }}

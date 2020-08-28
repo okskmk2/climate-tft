@@ -8,7 +8,7 @@
       >
     </div>
     <ul class="news-container">
-      <li v-for="news in newsList">
+      <li v-for="news in newsList" :key="news.id">
         <div>
           <a v-if="news.isLinkNews" :href="news.linkUrl" target="_blank"
             >{{ news.title }}

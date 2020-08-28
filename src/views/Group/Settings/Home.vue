@@ -23,7 +23,7 @@
 
 <script>
 import Snackbar from "../../../components/Snackbar";
-import firebase from "firebase";
+// import firebase from "firebase";
 import { mapGetters } from "vuex";
 
 export default {
