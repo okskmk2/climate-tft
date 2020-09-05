@@ -164,7 +164,7 @@ export default {
       firebase
         .firestore()
         .collection(
-          `department/${this.$route.params.departmentId}/Issue/${this.$route.params.issueId}/reply`
+          `department/${this.$route.params.departmentId}/issue/${this.$route.params.issueId}/reply`
         )
         .get()
         .then(querySnapshot => {
@@ -180,7 +180,7 @@ export default {
         firebase
           .firestore()
           .collection(
-            `department/${this.$route.params.departmentId}/Issue/${this.$route.params.issueId}/reply`
+            `department/${this.$route.params.departmentId}/issue/${this.$route.params.issueId}/reply`
           )
           .doc()
           .set({
@@ -201,7 +201,7 @@ export default {
         firebase
           .firestore()
           .doc(
-            `department/${this.$route.params.departmentId}/Issue/${this.$route.params.issueId}/reply/${replyId}`
+            `department/${this.$route.params.departmentId}/issue/${this.$route.params.issueId}/reply/${replyId}`
           )
           .delete()
           .then(() => {
