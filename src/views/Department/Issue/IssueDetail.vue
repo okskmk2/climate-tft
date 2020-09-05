@@ -103,6 +103,7 @@ export default {
   mounted() {
     this.getIssue();
     this.getUsers();
+    this.getReplyList();
   },
   methods: {
     getIssue() {
