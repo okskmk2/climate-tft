@@ -23,6 +23,9 @@
               </div>
               <div class="btn-group">
                 <button
+                  class="fas fa-pen"
+                ></button>
+                <button
                   @click="deleteReply(reply.id)"
                   class="fas fa-trash"
                 ></button>

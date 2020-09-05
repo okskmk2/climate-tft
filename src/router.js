@@ -33,6 +33,7 @@ import DepartmentNotice from "./views/Department/Doc/Notice.vue";
 import DepartmentEvent from "./views/Department/Doc/Event.vue";
 import DepartmentArchive from "./views/Department/Doc/Archive.vue";
 import DepartmentLogs from "./views/Department/Doc/Logs.vue";
+import DepartmentLogForm from "./views/Department/Doc/LogForm.vue";
 
 import DepartmentIssueTab from "./views/Department/IssueTab.vue";
 import DepartmentIssueBoard from "./views/Department/Issue/IssueBoard.vue";
@@ -155,6 +156,10 @@ export default new Router({
               component: Logs
             },
             {
+              path: "Logs",
+              component: Logs
+            },
+            {
               path: "Event",
               component: Event
             }
@@ -233,6 +238,10 @@ export default new Router({
             {
               path: "Logs",
               component: DepartmentLogs
+            },
+            {
+              path: "LogForm",
+              component: DepartmentLogForm
             },
             {
               path: "Event",
