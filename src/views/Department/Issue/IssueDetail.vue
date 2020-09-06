@@ -16,27 +16,13 @@
           </div>
           <ul class="reply-container">
             <li v-for="reply in replyList" :key="reply.id">
-              <div class="reply-content">
-                {{ reply.content }}
-                {{ reply.author }}
-                {{ reply.regDate }}
-              </div>
-              <div class="btn-group">
-                <button
-                  @click="deleteReply(reply.id)"
-                  class="fas fa-trash"
-                ></button>
-              </div>
+              <Reply :reply="reply" v-on:getReplyList="getReplyList"></Reply>
             </li>
             <li>
-              <Editor
-                v-if="isOpenReplyEditor"
-                v-model="replyContent"
-                class="reply-content"
-              ></Editor>
+              <Editor v-model="replyContent" class="reply-content"></Editor>
               <div class="btn-group">
                 <button @click="resetReply">취소</button>
-                <button @click="replyBtn">답변하기</button>
+                <button @click="writeReply">댓글 달기</button>
               </div>
             </li>
           </ul>
@@ -65,9 +51,9 @@
       <div class="meta-field">
         <label>담당자</label>
         <select v-model="issue.assignee">
-          <option v-for="user in users" :value="user.email" :key="user.id">{{
-            user.name
-          }}</option>
+          <option v-for="user in users" :value="user.email" :key="user.id">
+            {{ user.name }}
+          </option>
         </select>
       </div>
       <div class="meta-field" v-if="issue.reporter">
@@ -86,6 +72,7 @@
 
 <script>
 import Snackbar from "../../../components/Snackbar";
+import Reply from "../../../components/Reply";
 import Editor from "../../../components/Editor";
 import firebase from "firebase";
 import { nowDttm } from "../../../utils";
@@ -96,7 +83,6 @@ export default {
       issue: {},
       users: [],
       replyList: [],
-      isOpenReplyEditor: false,
       replyContent: ""
     };
   },
@@ -166,6 +152,7 @@ export default {
         .collection(
           `department/${this.$route.params.departmentId}/issue/${this.$route.params.issueId}/reply`
         )
+        .orderBy("regDate", "desc")
         .get()
         .then(querySnapshot => {
           let replyList = [];
@@ -175,7 +162,7 @@ export default {
           this.replyList = replyList;
         });
     },
-    replyBtn() {
+    writeReply() {
       if (this.replyContent !== "") {
         firebase
           .firestore()
@@ -191,32 +178,18 @@ export default {
           .then(() => {
             this.replyContent = "";
             this.getReplyList();
-          });
-      }
-      this.isOpenReplyEditor = !this.isOpenReplyEditor;
-    },
-    deleteReply(replyId) {
-      const rtn = confirm("정말로 삭제하시겠습니까?");
-      if (rtn) {
-        firebase
-          .firestore()
-          .doc(
-            `department/${this.$route.params.departmentId}/issue/${this.$route.params.issueId}/reply/${replyId}`
-          )
-          .delete()
-          .then(() => {
-            this.getReplyList();
+            this.$eventHub.$emit("resetReply");
           });
       }
     },
     resetReply() {
       this.replyContent = "";
-      this.isOpenReplyEditor = false;
     }
   },
   components: {
     Snackbar,
-    Editor
+    Editor,
+    Reply
   }
 };
 </script>

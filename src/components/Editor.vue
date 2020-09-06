@@ -15,6 +15,11 @@ export default {
       return { ...this.$listeners, input: this.onInput };
     }
   },
+  watch: {
+    value: function(val, oldVal) {
+      if (!val) this.$refs.editable.innerText = "";
+    }
+  },
   mounted() {
     this.$refs.editable.innerText = this.value;
   },
