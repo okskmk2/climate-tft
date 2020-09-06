@@ -33,6 +33,7 @@ firebase.auth().onAuthStateChanged(user => {
 
 Vue.config.productionTip = false;
 Vue.prototype.axios = axios;
+Vue.prototype.$eventHub = new Vue();
 
 new Vue({
   i18n,
