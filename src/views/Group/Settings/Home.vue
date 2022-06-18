@@ -13,7 +13,7 @@
       <label>사이트 주소</label>
       <input type="text" v-model="group.site" />
     </div>
-    <div class="footer-btn-group">
+    <div class="btn-group">
       <button @click="deleteGroup">삭제</button>
       <button @click="updateGroup">저장</button>
     </div>

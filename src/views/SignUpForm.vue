@@ -29,7 +29,7 @@
         <input type="password" />
         <div class="input-error"></div>
       </div>
-      <div class="footer-btn-group">
+      <div class="btn-group">
         <button @click="signUp">가입하기</button>
       </div>
     </form>

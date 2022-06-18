@@ -30,7 +30,7 @@ en:
               </tr>
             </table>
           </div>
-          <div class="footer-btn-group">
+          <div class="btn-group">
             <router-link class="a-btn" :to="'/Department/' + department.id">
               <button>입장하기</button>
             </router-link>

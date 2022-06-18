@@ -20,7 +20,7 @@
         <input type="text" v-model="site" />
         <div class="input-error"></div>
       </div>
-      <div class="footer-btn-group">
+      <div class="btn-group">
         <button @click="addGroup">등록하기</button>
       </div>
     </form>

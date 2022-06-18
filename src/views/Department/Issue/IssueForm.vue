@@ -21,7 +21,7 @@
         <label>기한</label>
         <input type="date" v-model="issue.dueDate" />
       </div>
-      <div class="footer-btn-group">
+      <div class="btn-group">
         <button>만들기</button>
       </div>
     </form>

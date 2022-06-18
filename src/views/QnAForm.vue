@@ -12,7 +12,7 @@
         <textarea class="content" v-model="qna.content" required></textarea>
         <div class="input-error"></div>
       </div>
-      <div class="footer-btn-group">
+      <div class="btn-group">
         <button>질문하기</button>
       </div>
     </form>

@@ -428,7 +428,7 @@ button {
   border-top: 1px solid var(--borderColor);
 }
 
-.reply-container .btn-group {
+.btn-group {
   text-align: right;
   margin-top: 1rem;
 }

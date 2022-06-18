@@ -14,13 +14,12 @@ import firebase from "firebase";
 // },
 
 var firebaseConfig = {
-  apiKey: "AIzaSyCgNgip47j_8yaqksKYuu259RnRCzPkbrQ",
-  authDomain: "beauntest2.firebaseapp.com",
-  databaseURL: "https://beauntest2.firebaseio.com",
-  projectId: "beauntest2",
-  storageBucket: "beauntest2.appspot.com",
-  messagingSenderId: "529606047384",
-  appId: "1:529606047384:web:9f3f8627b23a7f9d1882ed"
+  apiKey: "AIzaSyArnCVV0YwLNFEyRGiUUcgjirmIxogKsjY",
+  authDomain: "baeundev-e80f2.firebaseapp.com",
+  projectId: "baeundev-e80f2",
+  storageBucket: "baeundev-e80f2.appspot.com",
+  messagingSenderId: "1004641766437",
+  appId: "1:1004641766437:web:1d49c67ff22592cda103cc"
 };
 
 firebase.initializeApp(firebaseConfig);

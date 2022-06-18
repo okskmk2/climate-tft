@@ -10,7 +10,7 @@
         <label>내용 <span class="mandatory">*</span></label>
         <textarea class="content" v-model="description"></textarea>
       </div>
-      <div class="footer-btn-group">
+      <div class="btn-group">
         <button type="button">취소</button>
         <button type="submit">등록하기</button>
       </div>

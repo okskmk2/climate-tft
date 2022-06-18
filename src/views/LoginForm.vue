@@ -17,7 +17,7 @@
         <label>비밀번호</label>
         <input type="password" v-model="password" required />
       </div>
-      <div class="footer-btn-group">
+      <div class="btn-group">
         <button>로그인</button>
       </div>
     </form>

@@ -25,7 +25,7 @@
         <label>내용 <span class="mandatory">*</span></label>
         <textarea class="content" v-model="content"></textarea>
       </div>
-      <div class="footer-btn-group">
+      <div class="btn-group">
         <button>
           {{ isLinkNews ? "공유하기" : "글쓰기" }}
         </button>

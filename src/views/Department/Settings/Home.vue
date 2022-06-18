@@ -9,7 +9,7 @@
       <label>설명</label>
       <input type="text" v-model="department.description" />
     </div>
-    <div class="footer-btn-group">
+    <div class="btn-group">
       <button @click="deleteDepartment">삭제</button>
       <button @click="updateDepartment">저장</button>
     </div>

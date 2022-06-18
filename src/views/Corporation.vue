@@ -12,7 +12,7 @@
         <div class="title">{{ corp.name }}</div>
         <div class="card">
           <div class="desc">{{ corp.description }}</div>
-          <div class="footer-btn-group">
+          <div class="btn-group">
             <router-link class="a-btn" :to="'/Corporation/' + corp.id"
               ><button>자세히 보기</button></router-link
             >
